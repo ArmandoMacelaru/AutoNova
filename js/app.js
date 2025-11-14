@@ -1,4 +1,4 @@
-// Sample car data
+// Sample car data with real images
 const cars = [
     {
         id: 1,
@@ -9,7 +9,8 @@ const cars = [
         km: "56.300 km",
         fuel: "Benzină",
         gearbox: "Automată",
-        badge: "REDUS"
+        badge: "REDUS",
+        image: "https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?w=400&h=250&fit=crop"
     },
     {
         id: 2,
@@ -20,7 +21,8 @@ const cars = [
         km: "42.100 km",
         fuel: "Motorină",
         gearbox: "Automată",
-        badge: "NOU"
+        badge: "NOU",
+        image: "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=400&h=250&fit=crop"
     },
     {
         id: 3,
@@ -30,7 +32,8 @@ const cars = [
         year: "2019",
         km: "78.400 km",
         fuel: "Motorină",
-        gearbox: "Manuală"
+        gearbox: "Manuală",
+        image: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=400&h=250&fit=crop"
     },
     {
         id: 4,
@@ -41,7 +44,8 @@ const cars = [
         km: "23.200 km",
         fuel: "Motorină",
         gearbox: "Automată",
-        badge: "PREMIUM"
+        badge: "PREMIUM",
+        image: "https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=400&h=250&fit=crop"
     },
     {
         id: 5,
@@ -51,7 +55,8 @@ const cars = [
         year: "2021",
         km: "45.600 km",
         fuel: "Motorină",
-        gearbox: "Manuală"
+        gearbox: "Manuală",
+        image: "https://images.unsplash.com/photo-1601362840469-51e4d8d58785?w=400&h=250&fit=crop"
     },
     {
         id: 6,
@@ -62,20 +67,44 @@ const cars = [
         km: "18.900 km",
         fuel: "Benzină",
         gearbox: "Automată",
-        badge: "NOU"
+        badge: "NOU",
+        image: "https://images.unsplash.com/photo-1563720223485-8f6a4bca015c?w=400&h=250&fit=crop"
+    },
+    {
+        id: 7,
+        title: "Ford Focus 1.0 EcoBoost",
+        seller: "Vânzător individual",
+        price: "16.800 €",
+        year: "2020",
+        km: "62.100 km",
+        fuel: "Benzină",
+        gearbox: "Manuală",
+        image: "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=400&h=250&fit=crop"
+    },
+    {
+        id: 8,
+        title: "Toyota RAV4 Hybrid",
+        seller: "Dealer auto",
+        price: "34.200 €",
+        year: "2022",
+        km: "15.700 km",
+        fuel: "Hibrid",
+        gearbox: "Automată",
+        badge: "ECOLOGIC",
+        image: "https://images.unsplash.com/photo-1592198084033-aade902d1aae?w=400&h=250&fit=crop"
     }
 ];
 
 // Catalog rendering
-function renderCatalog() {
+function renderCatalog(carsToRender = cars) {
     const catalogEl = document.getElementById('catalog');
     if (!catalogEl) return;
     
-    catalogEl.innerHTML = cars.map(car => `
+    catalogEl.innerHTML = carsToRender.map(car => `
         <div class="car-card">
             ${car.badge ? `<div class="car-badge">${car.badge}</div>` : ''}
             <div class="car-image">
-                [FOTOGRAFIE MAȘINĂ]
+                <img src="${car.image}" alt="${car.title}">
                 <button class="favorite-btn">♥</button>
             </div>
             <div class="car-content">
@@ -105,8 +134,20 @@ document.addEventListener('DOMContentLoaded', function() {
     const searchInput = document.getElementById('searchInput');
     if (searchInput) {
         searchInput.addEventListener('input', function(e) {
-            console.log('Searching for:', e.target.value);
-            // Implement search logic here
+            const searchTerm = e.target.value.toLowerCase();
+            const filteredCars = cars.filter(car => 
+                car.title.toLowerCase().includes(searchTerm) ||
+                car.fuel.toLowerCase().includes(searchTerm) ||
+                car.seller.toLowerCase().includes(searchTerm)
+            );
+            renderCatalog(filteredCars);
         });
     }
+
+    // Favorite button functionality
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('favorite-btn')) {
+            e.target.classList.toggle('active');
+        }
+    });
 });
