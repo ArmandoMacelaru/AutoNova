@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinde mașină - AutoNova</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-container">
+            <a href="index.html" class="logo">AUTONOVA</a>
+            <nav class="main-nav">
+                <a href="index.html">Mașini</a>
+                <a href="adauga.html">Vinde mașină</a>
+                <a href="login.html">Contul meu</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1 class="page-title">Vinde mașina ta</h1>
+        <div style="max-width: 600px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+            <form id="add-car-form">
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; margin-bottom: 8px; font-weight: bold;">Marca și model</label>
+                    <input type="text" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;" required>
+                </div>
+                
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; margin-bottom: 8px; font-weight: bold;">An fabricație</label>
+                    <input type="number" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;" required>
+                </div>
+                
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; margin-bottom: 8px; font-weight: bold;">Preț (€)</label>
+                    <input type="number" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;" required>
+                </div>
+                
+                <button type="submit" style="background: #ff6a00; color: white; border: none; padding: 12px 30px; border-radius: 6px; font-size: 16px; cursor: pointer; width: 100%;">
+                    Adaugă anunț
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
