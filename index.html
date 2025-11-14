@@ -1,58 +1,102 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AutoNova - Catalog Auto</title>
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoNova - Piața auto nr. 1 din România | Mașini second hand</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
-
 <body>
-  <header>
-    <h1>AutoNova</h1>
-    <nav>
-      <a href="index.html">Catalog</a>
-      <a href="adauga.html">Vinde mașină</a>
-      <a href="login.html">Login</a>
-    </nav>
-  </header>
+    <!-- HEADER -->
+    <header class="main-header">
+        <div class="header-container">
+            <a href="index.html" class="logo">AUTONOVA</a>
+            <nav class="main-nav">
+                <a href="index.html">Mașini</a>
+                <a href="adauga.html">Vinde mașină</a>
+                <a href="login.html">Contul meu</a>
+            </nav>
+        </div>
+    </header>
 
-  <main>
-    <h2 class="section-title">Mașini disponibile</h2>
+    <!-- SEARCH SECTION -->
+    <section class="search-section">
+        <div class="search-container">
+            <div class="search-box">
+                <input type="text" placeholder="Caută mașină după marcă, model, etc..." id="searchInput">
+                <button class="search-btn">Caută</button>
+            </div>
+        </div>
+    </section>
 
-    <div id="catalog" class="catalog">
+    <!-- FILTERS -->
+    <section class="filters">
+        <div class="filter-container">
+            <select class="filter-select">
+                <option>Toate mărcile</option>
+                <option>BMW</option>
+                <option>Mercedes</option>
+                <option>Audi</option>
+                <option>Volkswagen</option>
+            </select>
+            <select class="filter-select">
+                <option>Toate modelele</option>
+            </select>
+            <select class="filter-select">
+                <option>Anul fabricației</option>
+                <option>2020-2024</option>
+                <option>2015-2019</option>
+            </select>
+            <select class="filter-select">
+                <option>Preț</option>
+                <option>Sub 5.000 €</option>
+                <option>5.000 - 10.000 €</option>
+            </select>
+        </div>
+    </section>
 
-      <!-- CARD STANDARD – EXEMPLU -->
-      <div class="car-card">
-        <div class="badge">Adăugat recent</div>
-
-        <div class="icons">
-          <i class="fa-regular fa-image"></i>
-          <i class="fa-regular fa-heart"></i>
+    <!-- MAIN CONTENT -->
+    <div class="container">
+        <h1 class="page-title">Mașini second hand în România</h1>
+        
+        <div class="catalog-grid" id="catalog">
+            <!-- Cars will be loaded here by JavaScript -->
         </div>
 
-        <img src="img/1.jpg" alt="Skoda Karoq">
-
-        <h3>Skoda Karoq</h3>
-        <p class="seller">Vânzător individual</p>
-
-        <div class="car-info">
-          <div><i class="fa-solid fa-road"></i> 56.300 km</div>
-          <div><i class="fa-solid fa-gas-pump"></i> Benzină</div>
-          <div><i class="fa-solid fa-gear"></i> Automată</div>
+        <!-- PAGINATION -->
+        <div class="pagination" id="pagination">
+            <!-- Pagination will be loaded here by JavaScript -->
         </div>
-
-        <div class="price-row">
-          <span class="price">20.999 €</span>
-          <a href="detalii.html" class="details-btn">Vezi detalii</a>
-        </div>
-      </div>
-
-      <!-- MAI ADAUGĂ CARTI DUPĂ MODEL -->
-
     </div>
-  </main>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Despre AutoNova</h3>
+                <a href="#">Cine suntem</a>
+                <a href="#">Cum cumpăr</a>
+                <a href="#">Cum vând</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h3>Ajutor</h3>
+                <a href="#">Întrebări frecvente</a>
+                <a href="#">Termeni și condiții</a>
+                <a href="#">Politica de confidențialitate</a>
+            </div>
+            <div class="footer-section">
+                <h3>Social</h3>
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="#">YouTube</a>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2024 AutoNova. Toate drepturile rezervate.
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
 </body>
 </html>
