@@ -1,169 +1,104 @@
 /* ---------------------------
-   Global Styles
+   CARD DESIGN - PlusAuto Style
 ----------------------------*/
-body {
-    margin: 0;
-    font-family: "Poppins", sans-serif;
-    background-color: #ffffff; /* Alb */
-    color: #1a1a1a; /* Gri închis pentru text */
-}
 
-/* ---------------------------
-   Header / Navbar
-----------------------------*/
-header {
-    background-color: #ff6a00; /* Portocaliu intens */
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: white;
-}
-
-header h1 {
-    margin: 0;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-nav a {
-    color: white;
-    margin-left: 25px;
-    text-decoration: none;
-    font-size: 18px;
-    transition: 0.3s;
-}
-
-nav a:hover {
-    opacity: 0.75;
-}
-
-/* ---------------------------
-   Hero Banner
-----------------------------*/
-.hero {
-    background: linear-gradient(to right, #ff6a00, #ff9a3c);
-    padding: 70px 20px;
-    color: white;
+.section-title {
     text-align: center;
-    border-radius: 0 0 20px 20px;
+    font-size: 32px;
+    margin-top: 20px;
+    color: #ff6a00;
 }
 
-.hero h2 {
-    font-size: 40px;
-    margin-bottom: 10px;
-}
-
-/* ---------------------------
-   Catalog Grid
-----------------------------*/
-.catalog {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    padding: 40px;
-}
-
-/* ---------------------------
-   Car Cards
-----------------------------*/
 .car-card {
-    background-color: #ffffff; /* Alb */
+    position: relative;
+    border: none;
+    padding: 0;
+    overflow: hidden;
     border-radius: 16px;
-    padding: 15px;
-    box-shadow: 0px 4px 16px rgba(0,0,0,0.12);
-    transition: 0.3s;
-    border: 2px solid #ff6a00; /* Portocaliu contur */
+    background: #fff;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
 }
 
-.car-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0px 6px 20px rgba(0,0,0,0.18);
-}
-
-/* Car image */
 .car-card img {
     width: 100%;
-    border-radius: 12px;
+    height: 210px;
+    object-fit: cover;
+    border-radius: 14px;
 }
 
-/* Car name */
+.badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: #007bff;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.icons {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+.icons i {
+    background: #fff;
+    padding: 8px;
+    border-radius: 50%;
+    margin-left: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
 .car-card h3 {
-    margin: 10px 0 5px;
+    margin: 12px 15px 0;
     font-size: 22px;
     color: #ff6a00;
 }
 
-/* Car type */
-.car-card p {
-    margin: 3px 0;
+.seller {
+    margin: 4px 15px;
+    color: #555;
+}
+
+.car-info {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 15px;
     font-size: 15px;
+    color: #333;
 }
 
-/* View details button */
-.car-card button {
-    width: 100%;
-    padding: 12px;
-    border: none;
-    margin-top: 10px;
-    background-color: #ff6a00;
+.car-info i {
+    margin-right: 6px;
+    color: #ff6a00;
+}
+
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+}
+
+.price {
+    font-size: 22px;
+    font-weight: bold;
+    color: #000;
+}
+
+.details-btn {
+    background: #ff6a00;
     color: white;
+    padding: 10px 16px;
     border-radius: 10px;
-    font-size: 17px;
-    cursor: pointer;
-    transition: 0.25s;
-}
-
-.car-card button:hover {
-    background-color: #e65e00;
-}
-
-/* ---------------------------
-   Footer
-----------------------------*/
-footer {
-    background-color: #ff6a00;
-    text-align: center;
-    padding: 20px;
-    color: white;
-    margin-top: 40px;
-}
-
-/* ---------------------------
-   Forms (Login + Vânzare mașină)
-----------------------------*/
-form {
-    max-width: 450px;
-    margin: 40px auto;
-    padding: 25px;
-    background-color: white;
-    border-radius: 14px;
-    border: 2px solid #ff6a00;
-    box-shadow: 0px 3px 15px rgba(0,0,0,0.15);
-}
-
-form input, form textarea, form select {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 14px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-}
-
-form button {
-    background-color: #ff6a00;
-    color: white;
-    padding: 12px;
-    width: 100%;
-    border-radius: 10px;
-    border: none;
-    font-size: 18px;
-    cursor: pointer;
+    text-decoration: none;
     transition: 0.2s;
 }
 
-form button:hover {
-    background-color: #e65e00;
+.details-btn:hover {
+    background: #e65e00;
 }
-
