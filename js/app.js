@@ -1,72 +1,112 @@
-// Mașini în catalog
+// Sample car data
 const cars = [
-  { name: "Tesla Model S", image: "images/tesla-model-s.jpg", year: 2022, type: "electric" },
-  { name: "Toyota Mirai", image: "images/toyota-mirai.jpg", year: 2021, type: "hydrogen" },
-  { name: "Renault Zoe", image: "images/renault-zoe.jpg", year: 2022, type: "electric" },
-  { name: "BMW i4", image: "images/bmw-i4.jpg", year: 2022, type: "electric" },
-  { name: "Hyundai Nexo", image: "images/hyundai-nexo.jpg", year: 2022, type: "hydrogen" },
-  { name: "Audi e-tron", image: "images/audi-e-tron.jpg", year: 2022, type: "electric" },
-  { name: "Mercedes EQC", image: "images/mercedes-eqc.jpg", year: 2022, type: "electric" },
-  { name: "Honda Clarity", image: "images/honda-clarity.jpg", year: 2021, type: "hydrogen" }
+    {
+        id: 1,
+        title: "Skoda Karoq 1.5 TSI",
+        seller: "Vânzător individual",
+        price: "20.999 €",
+        year: "2020",
+        km: "56.300 km",
+        fuel: "Benzină",
+        gearbox: "Automată",
+        badge: "REDUS"
+    },
+    {
+        id: 2,
+        title: "BMW Seria 3 320d",
+        seller: "Dealer auto",
+        price: "28.500 €",
+        year: "2021",
+        km: "42.100 km",
+        fuel: "Motorină",
+        gearbox: "Automată",
+        badge: "NOU"
+    },
+    {
+        id: 3,
+        title: "Volkswagen Golf 1.6 TDI",
+        seller: "Vânzător individual",
+        price: "15.750 €",
+        year: "2019",
+        km: "78.400 km",
+        fuel: "Motorină",
+        gearbox: "Manuală"
+    },
+    {
+        id: 4,
+        title: "Audi A4 2.0 TDI",
+        seller: "Dealer auto",
+        price: "32.999 €",
+        year: "2022",
+        km: "23.200 km",
+        fuel: "Motorină",
+        gearbox: "Automată",
+        badge: "PREMIUM"
+    },
+    {
+        id: 5,
+        title: "Dacia Duster 1.5 dCi",
+        seller: "Vânzător individual",
+        price: "18.300 €",
+        year: "2021",
+        km: "45.600 km",
+        fuel: "Motorină",
+        gearbox: "Manuală"
+    },
+    {
+        id: 6,
+        title: "Mercedes C-Class C200",
+        seller: "Dealer auto",
+        price: "35.800 €",
+        year: "2022",
+        km: "18.900 km",
+        fuel: "Benzină",
+        gearbox: "Automată",
+        badge: "NOU"
+    }
 ];
 
-const catalogEl = document.getElementById("catalog");
-const paginationEl = document.getElementById("pagination");
-const searchEl = document.getElementById("search");
-
-let currentPage = 1;
-const itemsPerPage = 4;
-
-// Afișare catalog
+// Catalog rendering
 function renderCatalog() {
-  if (!catalogEl) return;
-
-  let filteredCars = cars;
-  if (searchEl && searchEl.value) {
-    const q = searchEl.value.toLowerCase();
-    filteredCars = cars.filter(car => car.name.toLowerCase().includes(q));
-  }
-
-  const start = (currentPage - 1) * itemsPerPage;
-  const paginated = filteredCars.slice(start, start + itemsPerPage);
-
-  catalogEl.innerHTML = paginated.map(car => `
-    <div class="car-card">
-      <img src="${car.image}" alt="${car.name}">
-      <h3>${car.name}</h3>
-      <p>An: ${car.year}</p>
-      <p>Tip: ${car.type}</p>
-    </div>
-  `).join("");
-
-  renderPagination(filteredCars.length);
+    const catalogEl = document.getElementById('catalog');
+    if (!catalogEl) return;
+    
+    catalogEl.innerHTML = cars.map(car => `
+        <div class="car-card">
+            ${car.badge ? `<div class="car-badge">${car.badge}</div>` : ''}
+            <div class="car-image">
+                [FOTOGRAFIE MAȘINĂ]
+                <button class="favorite-btn">♥</button>
+            </div>
+            <div class="car-content">
+                <h3 class="car-title">${car.title}</h3>
+                <p class="car-seller">${car.seller}</p>
+                <div class="car-details">
+                    <div class="car-detail">📅 ${car.year}</div>
+                    <div class="car-detail">🛣️ ${car.km}</div>
+                    <div class="car-detail">⛽ ${car.fuel}</div>
+                    <div class="car-detail">⚙️ ${car.gearbox}</div>
+                </div>
+                <div class="car-price">${car.price}</div>
+                <div class="car-actions">
+                    <a href="detalii.html?id=${car.id}" class="details-btn">Vezi detalii</a>
+                    <button class="compare-btn">Compară</button>
+                </div>
+            </div>
+        </div>
+    `).join('');
 }
 
-function renderPagination(totalItems) {
-  if (!paginationEl) return;
-
-  const totalPages = Math.ceil(totalItems / itemsPerPage);
-  paginationEl.innerHTML = "";
-
-  for (let i = 1; i <= totalPages; i++) {
-    const btn = document.createElement("button");
-    btn.textContent = i;
-    if (i === currentPage) btn.style.background = "#9b5de5";
-    btn.addEventListener("click", () => {
-      currentPage = i;
-      renderCatalog();
-    });
-    paginationEl.appendChild(btn);
-  }
-}
-
-if (catalogEl) {
-  renderCatalog();
-}
-
-if (searchEl) {
-  searchEl.addEventListener("input", () => {
-    currentPage = 1;
+// Initialize
+document.addEventListener('DOMContentLoaded', function() {
     renderCatalog();
-  });
-}
+    
+    // Search functionality
+    const searchInput = document.getElementById('searchInput');
+    if (searchInput) {
+        searchInput.addEventListener('input', function(e) {
+            console.log('Searching for:', e.target.value);
+            // Implement search logic here
+        });
+    }
+});
