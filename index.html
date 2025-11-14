@@ -5,28 +5,54 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AutoNova - Catalog Auto</title>
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
+
 <body>
   <header>
     <h1>AutoNova</h1>
     <nav>
       <a href="index.html">Catalog</a>
-      <a href="detalii.html">Detalii</a>
+      <a href="adauga.html">Vinde mașină</a>
       <a href="login.html">Login</a>
     </nav>
   </header>
 
-  <aside class="sidebar">
-    <h2>Filtre</h2>
-    <input type="text" id="search" placeholder="Caută mașină...">
-  </aside>
-
   <main>
-    <h2>Catalog Mașini</h2>
-    <div id="catalog" class="catalog"></div>
-    <div id="pagination" class="pagination"></div>
-  </main>
+    <h2 class="section-title">Mașini disponibile</h2>
 
-  <script src="js/app.js"></script>
+    <div id="catalog" class="catalog">
+
+      <!-- CARD STANDARD – EXEMPLU -->
+      <div class="car-card">
+        <div class="badge">Adăugat recent</div>
+
+        <div class="icons">
+          <i class="fa-regular fa-image"></i>
+          <i class="fa-regular fa-heart"></i>
+        </div>
+
+        <img src="img/1.jpg" alt="Skoda Karoq">
+
+        <h3>Skoda Karoq</h3>
+        <p class="seller">Vânzător individual</p>
+
+        <div class="car-info">
+          <div><i class="fa-solid fa-road"></i> 56.300 km</div>
+          <div><i class="fa-solid fa-gas-pump"></i> Benzină</div>
+          <div><i class="fa-solid fa-gear"></i> Automată</div>
+        </div>
+
+        <div class="price-row">
+          <span class="price">20.999 €</span>
+          <a href="detalii.html" class="details-btn">Vezi detalii</a>
+        </div>
+      </div>
+
+      <!-- MAI ADAUGĂ CARTI DUPĂ MODEL -->
+
+    </div>
+  </main>
 </body>
 </html>
