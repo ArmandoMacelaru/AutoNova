@@ -85,8 +85,14 @@
             const loginLink = document.getElementById('loginLink');
             if (loginLink && isLoggedIn()) {
                 const user = JSON.parse(localStorage.getItem('autonova_current_user'));
-                loginLink.innerHTML = `Bună, ${user.username} | <a href="logout.html">Logout</a>`;
+                loginLink.innerHTML = `Bună, ${user.username} | <a href="index.html" onclick="logout()">Logout</a>`;
             }
+        }
+
+        // Funcție logout
+        function logout() {
+            localStorage.removeItem('autonova_current_user');
+            alert('Te-ai delogat cu succes!');
         }
 
         // === PORNIRE ===
@@ -105,7 +111,7 @@
                 messageEl.style.display = 'block';
                 messageEl.style.background = '#e8f5e8';
                 messageEl.style.color = '#2e7d32';
-                messageEl.textContent = 'Te-ai logat cu succes! Redirecționare...';
+                messageEl.textContent = '✅ Te-ai logat cu succes! Redirecționare...';
                 
                 setTimeout(() => {
                     window.location.href = 'index.html';
@@ -114,7 +120,7 @@
                 messageEl.style.display = 'block';
                 messageEl.style.background = '#ffebee';
                 messageEl.style.color = '#c62828';
-                messageEl.textContent = 'Email sau parolă incorectă!';
+                messageEl.textContent = '❌ Email sau parolă incorectă!';
             }
         });
     </script>
