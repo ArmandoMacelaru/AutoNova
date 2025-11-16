@@ -13,7 +13,7 @@
             <nav class="main-nav">
                 <a href="index.html">Mașini</a>
                 <a href="adauga.html">Vinde mașină</a>
-                <a href="login.html">Contul meu</a>
+                <a href="login.html" id="loginLink">Contul meu</a>
             </nav>
         </div>
     </header>
@@ -21,24 +21,59 @@
     <div class="container">
         <h1 class="page-title">Autentificare</h1>
         <div style="max-width: 400px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
-            <form id="login-form">
+            <div id="message" style="display: none; padding: 10px; border-radius: 4px; margin-bottom: 15px;"></div>
+            
+            <form id="loginForm">
                 <div style="margin-bottom: 20px;">
                     <label style="display: block; margin-bottom: 8px; font-weight: bold;">Email</label>
-                    <input type="email" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;" required>
+                    <input type="email" id="email" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;" required>
                 </div>
                 
                 <div style="margin-bottom: 20px;">
                     <label style="display: block; margin-bottom: 8px; font-weight: bold;">Parolă</label>
-                    <input type="password" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;" required>
+                    <input type="password" id="password" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;" required>
                 </div>
                 
                 <button type="submit" style="background: #ff6a00; color: white; border: none; padding: 12px 30px; border-radius: 6px; font-size: 16px; cursor: pointer; width: 100%;">
                     Intră în cont
                 </button>
             </form>
+            
+            <div style="text-align: center; margin-top: 15px;">
+                <a href="register.html" style="color: #ff6a00; text-decoration: none;">Nu ai cont? Înregistrează-te</a>
+            </div>
         </div>
     </div>
 
     <script src="js/app.js"></script>
+    <script>
+        // Login form
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const messageEl = document.getElementById('message');
+            
+            if (loginUser(email, password)) {
+                messageEl.style.display = 'block';
+                messageEl.style.background = '#e8f5e8';
+                messageEl.style.color = '#2e7d32';
+                messageEl.textContent = 'Te-ai logat cu succes!';
+                
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 1000);
+            } else {
+                messageEl.style.display = 'block';
+                messageEl.style.background = '#ffebee';
+                messageEl.style.color = '#c62828';
+                messageEl.textContent = 'Email sau parolă incorectă!';
+            }
+        });
+
+        // Actualizează navigația
+        updateNavigation();
+    </script>
 </body>
 </html>
