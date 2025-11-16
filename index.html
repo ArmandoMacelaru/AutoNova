@@ -1,253 +1,287 @@
-<!DOCTYPE html>
-<html lang="ro">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AutoNova - Piața auto nr. 1 din România | Mașini second hand</title>
-    <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-    <!-- HEADER -->
-    <header class="main-header">
-        <div class="header-container">
-            <a href="index.html" class="logo">AUTONOVA</a>
-            <nav class="main-nav">
-                <a href="index.html">Mașini</a>
-                <a href="adauga.html">Vinde mașină</a>
-                <a href="login.html">Contul meu</a>
-            </nav>
+<div class="catalog-grid" id="catalog">
+    <!-- MASINA 1 -->
+    <div class="car-card">
+        <div class="car-badge">REDUS</div>
+        <div class="car-image">
+            <img src="https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?w=400&h=250&fit=crop" alt="Skoda Karoq">
+            <button class="favorite-btn">♥</button>
         </div>
-    </header>
-
-    <!-- SEARCH SECTION -->
-    <section class="search-section">
-        <div class="search-container">
-            <div class="search-box">
-                <input type="text" placeholder="Caută mașină după marcă, model, etc..." id="searchInput">
-                <button class="search-btn">Caută</button>
+        <div class="car-content">
+            <h3 class="car-title">Skoda Karoq 1.5 TSI</h3>
+            <p class="car-seller">Vânzător individual</p>
+            <div class="car-details">
+                <div class="car-detail">📅 2020</div>
+                <div class="car-detail">🛣️ 56.300 km</div>
+                <div class="car-detail">⛽ Benzină</div>
+                <div class="car-detail">⚙️ Automată</div>
             </div>
-        </div>
-    </section>
-
-    <!-- FILTERS -->
-    <section class="filters">
-        <div class="filter-container">
-            <select class="filter-select">
-                <option>Toate mărcile</option>
-                <option>BMW</option>
-                <option>Mercedes</option>
-                <option>Audi</option>
-                <option>Volkswagen</option>
-            </select>
-            <select class="filter-select">
-                <option>Toate modelele</option>
-            </select>
-            <select class="filter-select">
-                <option>Anul fabricației</option>
-                <option>2020-2024</option>
-                <option>2015-2019</option>
-            </select>
-            <select class="filter-select">
-                <option>Preț</option>
-                <option>Sub 5.000 €</option>
-                <option>5.000 - 10.000 €</option>
-            </select>
-        </div>
-    </section>
-
-    <!-- MAIN CONTENT -->
-    <div class="container">
-        <h1 class="page-title">Mașini second hand în România</h1>
-        
-        <div class="catalog-grid" id="catalog">
-            <!-- Mașinile vor apărea aici -->
+            <div class="car-price">20.999 €</div>
+            <div class="car-actions">
+                <a href="detalii.html?id=1" class="details-btn">Vezi detalii</a>
+                <button class="compare-btn">Compară</button>
+            </div>
         </div>
     </div>
 
-    <!-- FOOTER -->
-    <footer class="main-footer">
-        <div class="footer-container">
-            <div class="footer-section">
-                <h3>Despre AutoNova</h3>
-                <a href="#">Cine suntem</a>
-                <a href="#">Cum cumpăr</a>
-                <a href="#">Cum vând</a>
-                <a href="#">Contact</a>
+    <!-- MASINA 2 -->
+    <div class="car-card">
+        <div class="car-badge">NOU</div>
+        <div class="car-image">
+            <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=400&h=250&fit=crop" alt="BMW Seria 3">
+            <button class="favorite-btn">♥</button>
+        </div>
+        <div class="car-content">
+            <h3 class="car-title">BMW Seria 3 320d</h3>
+            <p class="car-seller">Dealer auto</p>
+            <div class="car-details">
+                <div class="car-detail">📅 2021</div>
+                <div class="car-detail">🛣️ 42.100 km</div>
+                <div class="car-detail">⛽ Motorină</div>
+                <div class="car-detail">⚙️ Automată</div>
             </div>
-            <div class="footer-section">
-                <h3>Ajutor</h3>
-                <a href="#">Întrebări frecvente</a>
-                <a href="#">Termeni și condiții</a>
-                <a href="#">Politica de confidențialitate</a>
-            </div>
-            <div class="footer-section">
-                <h3>Social</h3>
-                <a href="#">Facebook</a>
-                <a href="#">Instagram</a>
-                <a href="#">YouTube</a>
+            <div class="car-price">28.500 €</div>
+            <div class="car-actions">
+                <a href="detalii.html?id=2" class="details-btn">Vezi detalii</a>
+                <button class="compare-btn">Compară</button>
             </div>
         </div>
-        <div class="copyright">
-            &copy; 2024 AutoNova. Toate drepturile rezervate.
+    </div>
+
+    <!-- MASINA 3 -->
+    <div class="car-card">
+        <div class="car-image">
+            <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=400&h=250&fit=crop" alt="Volkswagen Golf">
+            <button class="favorite-btn">♥</button>
         </div>
-    </footer>
+        <div class="car-content">
+            <h3 class="car-title">Volkswagen Golf 1.6 TDI</h3>
+            <p class="car-seller">Vânzător individual</p>
+            <div class="car-details">
+                <div class="car-detail">📅 2019</div>
+                <div class="car-detail">🛣️ 78.400 km</div>
+                <div class="car-detail">⛽ Motorină</div>
+                <div class="car-detail">⚙️ Manuală</div>
+            </div>
+            <div class="car-price">15.750 €</div>
+            <div class="car-actions">
+                <a href="detalii.html?id=3" class="details-btn">Vezi detalii</a>
+                <button class="compare-btn">Compară</button>
+            </div>
+        </div>
+    </div>
 
-    <script>
-        // === CATALOG MAȘINI ===
-        function initializeCars() {
-            if (!localStorage.getItem('autonova_cars')) {
-                const defaultCars = [
-                    {
-                        id: 1,
-                        title: "Skoda Karoq 1.5 TSI",
-                        seller: "Vânzător individual",
-                        price: "20.999 €",
-                        year: "2020",
-                        km: "56.300 km",
-                        fuel: "Benzină",
-                        gearbox: "Automată",
-                        badge: "REDUS",
-                        image: "https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?w=400&h=250&fit=crop"
-                    },
-                    {
-                        id: 2,
-                        title: "BMW Seria 3 320d",
-                        seller: "Dealer auto",
-                        price: "28.500 €",
-                        year: "2021",
-                        km: "42.100 km",
-                        fuel: "Motorină",
-                        gearbox: "Automată",
-                        badge: "NOU",
-                        image: "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=400&h=250&fit=crop"
-                    },
-                    {
-                        id: 3,
-                        title: "Volkswagen Golf 1.6 TDI",
-                        seller: "Vânzător individual",
-                        price: "15.750 €",
-                        year: "2019",
-                        km: "78.400 km",
-                        fuel: "Motorină",
-                        gearbox: "Manuală",
-                        image: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=400&h=250&fit=crop"
-                    },
-                    {
-                        id: 4,
-                        title: "Audi A4 2.0 TDI",
-                        seller: "Dealer auto",
-                        price: "32.999 €",
-                        year: "2022",
-                        km: "23.200 km",
-                        fuel: "Motorină",
-                        gearbox: "Automată",
-                        badge: "PREMIUM",
-                        image: "https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=400&h=250&fit=crop"
-                    },
-                    {
-                        id: 5,
-                        title: "Dacia Duster 1.5 dCi",
-                        seller: "Vânzător individual",
-                        price: "18.300 €",
-                        year: "2021",
-                        km: "45.600 km",
-                        fuel: "Motorină",
-                        gearbox: "Manuală",
-                        image: "https://images.unsplash.com/photo-1601362840469-51e4d8d58785?w=400&h=250&fit=crop"
-                    },
-                    {
-                        id: 6,
-                        title: "Mercedes C-Class C200",
-                        seller: "Dealer auto",
-                        price: "35.800 €",
-                        year: "2022",
-                        km: "18.900 km",
-                        fuel: "Benzină",
-                        gearbox: "Automată",
-                        badge: "NOU",
-                        image: "https://images.unsplash.com/photo-1563720223485-8f6a4bca015c?w=400&h=250&fit=crop"
-                    }
-                ];
-                localStorage.setItem('autonova_cars', JSON.stringify(defaultCars));
-            }
-        }
+    <!-- MASINA 4 -->
+    <div class="car-card">
+        <div class="car-badge">PREMIUM</div>
+        <div class="car-image">
+            <img src="https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=400&h=250&fit=crop" alt="Audi A4">
+            <button class="favorite-btn">♥</button>
+        </div>
+        <div class="car-content">
+            <h3 class="car-title">Audi A4 2.0 TDI</h3>
+            <p class="car-seller">Dealer auto</p>
+            <div class="car-details">
+                <div class="car-detail">📅 2022</div>
+                <div class="car-detail">🛣️ 23.200 km</div>
+                <div class="car-detail">⛽ Motorină</div>
+                <div class="car-detail">⚙️ Automată</div>
+            </div>
+            <div class="car-price">32.999 €</div>
+            <div class="car-actions">
+                <a href="detalii.html?id=4" class="details-btn">Vezi detalii</a>
+                <button class="compare-btn">Compară</button>
+            </div>
+        </div>
+    </div>
 
-        function renderCatalog() {
-            const catalogEl = document.getElementById('catalog');
-            if (!catalogEl) return;
-            
-            const cars = JSON.parse(localStorage.getItem('autonova_cars') || '[]');
-            
-            catalogEl.innerHTML = cars.map(car => `
-                <div class="car-card">
-                    ${car.badge ? `<div class="car-badge">${car.badge}</div>` : ''}
-                    <div class="car-image">
-                        <img src="${car.image}" alt="${car.title}">
-                        <button class="favorite-btn">♥</button>
-                    </div>
-                    <div class="car-content">
-                        <h3 class="car-title">${car.title}</h3>
-                        <p class="car-seller">${car.seller}</p>
-                        <div class="car-details">
-                            <div class="car-detail">📅 ${car.year}</div>
-                            <div class="car-detail">🛣️ ${car.km}</div>
-                            <div class="car-detail">⛽ ${car.fuel}</div>
-                            <div class="car-detail">⚙️ ${car.gearbox}</div>
-                        </div>
-                        <div class="car-price">${car.price}</div>
-                        <div class="car-actions">
-                            <a href="detalii.html?id=${car.id}" class="details-btn">Vezi detalii</a>
-                            <button class="compare-btn">Compară</button>
-                        </div>
-                    </div>
-                </div>
-            `).join('');
-        }
+    <!-- MASINA 5 -->
+    <div class="car-card">
+        <div class="car-image">
+            <img src="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?w=400&h=250&fit=crop" alt="Dacia Duster">
+            <button class="favorite-btn">♥</button>
+        </div>
+        <div class="car-content">
+            <h3 class="car-title">Dacia Duster 1.5 dCi</h3>
+            <p class="car-seller">Vânzător individual</p>
+            <div class="car-details">
+                <div class="car-detail">📅 2021</div>
+                <div class="car-detail">🛣️ 45.600 km</div>
+                <div class="car-detail">⛽ Motorină</div>
+                <div class="car-detail">⚙️ Manuală</div>
+            </div>
+            <div class="car-price">18.300 €</div>
+            <div class="car-actions">
+                <a href="detalii.html?id=5" class="details-btn">Vezi detalii</a>
+                <button class="compare-btn">Compară</button>
+            </div>
+        </div>
+    </div>
 
-        // === PORNIRE ===
-        document.addEventListener('DOMContentLoaded', function() {
-            initializeCars();
-            renderCatalog();
-            
-            // Căutare
-            const searchInput = document.getElementById('searchInput');
-            if (searchInput) {
-                searchInput.addEventListener('input', function(e) {
-                    const searchTerm = e.target.value.toLowerCase();
-                    const cars = JSON.parse(localStorage.getItem('autonova_cars') || '[]');
-                    const filteredCars = cars.filter(car => 
-                        car.title.toLowerCase().includes(searchTerm) ||
-                        car.fuel.toLowerCase().includes(searchTerm)
-                    );
-                    
-                    const catalogEl = document.getElementById('catalog');
-                    catalogEl.innerHTML = filteredCars.map(car => `
-                        <div class="car-card">
-                            ${car.badge ? `<div class="car-badge">${car.badge}</div>` : ''}
-                            <div class="car-image">
-                                <img src="${car.image}" alt="${car.title}">
-                                <button class="favorite-btn">♥</button>
-                            </div>
-                            <div class="car-content">
-                                <h3 class="car-title">${car.title}</h3>
-                                <p class="car-seller">${car.seller}</p>
-                                <div class="car-details">
-                                    <div class="car-detail">📅 ${car.year}</div>
-                                    <div class="car-detail">🛣️ ${car.km}</div>
-                                    <div class="car-detail">⛽ ${car.fuel}</div>
-                                    <div class="car-detail">⚙️ ${car.gearbox}</div>
-                                </div>
-                                <div class="car-price">${car.price}</div>
-                                <div class="car-actions">
-                                    <a href="detalii.html?id=${car.id}" class="details-btn">Vezi detalii</a>
-                                    <button class="compare-btn">Compară</button>
-                                </div>
-                            </div>
-                        </div>
-                    `).join('');
-                });
-            }
-        });
-    </script>
-</body>
-</html>
+    <!-- MASINA 6 -->
+    <div class="car-card">
+        <div class="car-badge">NOU</div>
+        <div class="car-image">
+            <img src="https://images.unsplash.com/photo-1563720223485-8f6a4bca015c?w=400&h=250&fit=crop" alt="Mercedes C-Class">
+            <button class="favorite-btn">♥</button>
+        </div>
+        <div class="car-content">
+            <h3 class="car-title">Mercedes C-Class C200</h3>
+            <p class="car-seller">Dealer auto</p>
+            <div class="car-details">
+                <div class="car-detail">📅 2022</div>
+                <div class="car-detail">🛣️ 18.900 km</div>
+                <div class="car-detail">⛽ Benzină</div>
+                <div class="car-detail">⚙️ Automată</div>
+            </div>
+            <div class="car-price">35.800 €</div>
+            <div class="car-actions">
+                <a href="detalii.html?id=6" class="details-btn">Vezi detalii</a>
+                <button class="compare-btn">Compară</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MASINA 7 -->
+    <div class="car-card">
+        <div class="car-badge">OFERTĂ</div>
+        <div class="car-image">
+            <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=400&h=250&fit=crop" alt="Ford Focus">
+            <button class="favorite-btn">♥</button>
+        </div>
+        <div class="car-content">
+            <h3 class="car-title">Ford Focus 1.0 EcoBoost</h3>
+            <p class="car-seller">Vânzător individual</p>
+            <div class="car-details">
+                <div class="car-detail">📅 2020</div>
+                <div class="car-detail">🛣️ 62.100 km</div>
+                <div class="car-detail">⛽ Benzină</div>
+                <div class="car-detail">⚙️ Manuală</div>
+            </div>
+            <div class="car-price">16.800 €</div>
+            <div class="car-actions">
+                <a href="detalii.html?id=7" class="details-btn">Vezi detalii</a>
+                <button class="compare-btn">Compară</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MASINA 8 -->
+    <div class="car-card">
+        <div class="car-badge">ECOLOGIC</div>
+        <div class="car-image">
+            <img src="https://images.unsplash.com/photo-1592198084033-aade902d1aae?w=400&h=250&fit=crop" alt="Toyota RAV4">
+            <button class="favorite-btn">♥</button>
+        </div>
+        <div class="car-content">
+            <h3 class="car-title">Toyota RAV4 Hybrid</h3>
+            <p class="car-seller">Dealer auto</p>
+            <div class="car-details">
+                <div class="car-detail">📅 2022</div>
+                <div class="car-detail">🛣️ 15.700 km</div>
+                <div class="car-detail">⛽ Hibrid</div>
+                <div class="car-detail">⚙️ Automată</div>
+            </div>
+            <div class="car-price">34.200 €</div>
+            <div class="car-actions">
+                <a href="detalii.html?id=8" class="details-btn">Vezi detalii</a>
+                <button class="compare-btn">Compară</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MASINA 9 -->
+    <div class="car-card">
+        <div class="car-badge">SPORT</div>
+        <div class="car-image">
+            <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=400&h=250&fit=crop" alt="Porsche 911">
+            <button class="favorite-btn">♥</button>
+        </div>
+        <div class="car-content">
+            <h3 class="car-title">Porsche 911 Carrera</h3>
+            <p class="car-seller">Dealer auto</p>
+            <div class="car-details">
+                <div class="car-detail">📅 2021</div>
+                <div class="car-detail">🛣️ 12.500 km</div>
+                <div class="car-detail">⛽ Benzină</div>
+                <div class="car-detail">⚙️ Automată</div>
+            </div>
+            <div class="car-price">89.999 €</div>
+            <div class="car-actions">
+                <a href="detalii.html?id=9" class="details-btn">Vezi detalii</a>
+                <button class="compare-btn">Compară</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MASINA 10 -->
+    <div class="car-card">
+        <div class="car-badge">FAMILIE</div>
+        <div class="car-image">
+            <img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=400&h=250&fit=crop" alt="Volvo XC60">
+            <button class="favorite-btn">♥</button>
+        </div>
+        <div class="car-content">
+            <h3 class="car-title">Volvo XC60 T5</h3>
+            <p class="car-seller">Dealer auto</p>
+            <div class="car-details">
+                <div class="car-detail">📅 2021</div>
+                <div class="car-detail">🛣️ 34.800 km</div>
+                <div class="car-detail">⛽ Benzină</div>
+                <div class="car-detail">⚙️ Automată</div>
+            </div>
+            <div class="car-price">42.500 €</div>
+            <div class="car-actions">
+                <a href="detalii.html?id=10" class="details-btn">Vezi detalii</a>
+                <button class="compare-btn">Compară</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MASINA 11 -->
+    <div class="car-card">
+        <div class="car-badge">ECONOMIC</div>
+        <div class="car-image">
+            <img src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=400&h=250&fit=crop" alt="Hyundai i30">
+            <button class="favorite-btn">♥</button>
+        </div>
+        <div class="car-content">
+            <h3 class="car-title">Hyundai i30 1.6 CRDi</h3>
+            <p class="car-seller">Vânzător individual</p>
+            <div class="car-details">
+                <div class="car-detail">📅 2019</div>
+                <div class="car-detail">🛣️ 67.300 km</div>
+                <div class="car-detail">⛽ Motorină</div>
+                <div class="car-detail">⚙️ Manuală</div>
+            </div>
+            <div class="car-price">14.900 €</div>
+            <div class="car-actions">
+                <a href="detalii.html?id=11" class="details-btn">Vezi detalii</a>
+                <button class="compare-btn">Compară</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MASINA 12 -->
+    <div class="car-card">
+        <div class="car-badge">LUX</div>
+        <div class="car-image">
+            <img src="https://images.unsplash.com/photo-1555212697-194d092e3b8f?w=400&h=250&fit=crop" alt="Range Rover">
+            <button class="favorite-btn">♥</button>
+        </div>
+        <div class="car-content">
+            <h3 class="car-title">Range Rover Evoque</h3>
+            <p class="car-seller">Dealer auto</p>
+            <div class="car-details">
+                <div class="car-detail">📅 2022</div>
+                <div class="car-detail">🛣️ 22.100 km</div>
+                <div class="car-detail">⛽ Motorină</div>
+                <div class="car-detail">⚙️ Automată</div>
+            </div>
+            <div class="car-price">52.800 €</div>
+            <div class="car-actions">
+                <a href="detalii.html?id=12" class="details-btn">Vezi detalii</a>
+                <button class="compare-btn">Compară</button>
+            </div>
+        </div>
+    </div>
+</div>
