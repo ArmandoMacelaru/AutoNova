@@ -49,6 +49,10 @@
             font-weight: 500;
         }
 
+        .main-nav a:hover {
+            opacity: 0.8;
+        }
+
         /* SEARCH */
         .search-section {
             background: white;
@@ -87,6 +91,10 @@
             font-weight: bold;
         }
 
+        .search-btn:hover {
+            background: #e65e00;
+        }
+
         /* FILTERS */
         .filters {
             background: white;
@@ -108,6 +116,7 @@
             border: 1px solid #ddd;
             border-radius: 6px;
             background: white;
+            cursor: pointer;
         }
 
         /* MAIN CONTENT */
@@ -139,6 +148,7 @@
             overflow: hidden;
             box-shadow: 0 2px 10px rgba(0,0,0,0.08);
             transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
         }
 
         .car-card:hover {
@@ -156,6 +166,7 @@
             border-radius: 12px;
             font-size: 12px;
             font-weight: bold;
+            z-index: 2;
         }
 
         .car-image {
@@ -169,6 +180,11 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .car-card:hover .car-image img {
+            transform: scale(1.05);
         }
 
         .favorite-btn {
@@ -182,6 +198,14 @@
             border-radius: 50%;
             cursor: pointer;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            color: gray;
+            font-size: 16px;
+            z-index: 2;
+        }
+
+        .favorite-btn:hover {
+            background: #ff6a00;
+            color: white;
         }
 
         .car-content {
@@ -192,6 +216,7 @@
             font-size: 16px;
             font-weight: bold;
             margin-bottom: 5px;
+            color: #333;
         }
 
         .car-seller {
@@ -206,6 +231,13 @@
             gap: 8px;
             margin-bottom: 15px;
             font-size: 12px;
+            color: #555;
+        }
+
+        .car-detail {
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
 
         .car-price {
@@ -228,6 +260,12 @@
             border-radius: 6px;
             text-decoration: none;
             font-size: 14px;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        .details-btn:hover {
+            background: #e65e00;
         }
 
         .compare-btn {
@@ -237,6 +275,11 @@
             border-radius: 4px;
             font-size: 12px;
             cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .compare-btn:hover {
+            background: #f0f0f0;
         }
 
         /* FOOTER */
@@ -266,6 +309,11 @@
             text-decoration: none;
             display: block;
             margin-bottom: 8px;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: #ff6a00;
         }
 
         .copyright {
@@ -274,6 +322,32 @@
             margin-top: 20px;
             border-top: 1px solid #555;
             color: #999;
+            font-size: 14px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .main-nav {
+                display: flex;
+                gap: 15px;
+            }
+
+            .main-nav a {
+                margin-left: 0;
+            }
+
+            .catalog-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+
+            .filter-container {
+                justify-content: center;
+            }
         }
     </style>
 </head>
@@ -307,17 +381,21 @@
                 <option>Toate mărcile</option>
                 <option>BMW</option>
                 <option>Mercedes</option>
+                <option>Audi</option>
+                <option>Volkswagen</option>
             </select>
             <select class="filter-select">
                 <option>Toate modelele</option>
             </select>
             <select class="filter-select">
-                <option>An fabricație</option>
+                <option>Anul fabricației</option>
                 <option>2020-2024</option>
+                <option>2015-2019</option>
             </select>
             <select class="filter-select">
                 <option>Preț</option>
-                <option>Sub 10.000 €</option>
+                <option>Sub 5.000 €</option>
+                <option>5.000 - 10.000 €</option>
             </select>
         </div>
     </section>
@@ -331,7 +409,7 @@
             <div class="car-card">
                 <div class="car-badge">NOU</div>
                 <div class="car-image">
-                    <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=400&h=250&fit=crop" alt="BMW">
+                    <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=400&h=250&fit=crop" alt="BMW Seria 3">
                     <button class="favorite-btn">♥</button>
                 </div>
                 <div class="car-content">
@@ -355,7 +433,7 @@
             <div class="car-card">
                 <div class="car-badge">REDUS</div>
                 <div class="car-image">
-                    <img src="https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?w=400&h=250&fit=crop" alt="Skoda">
+                    <img src="https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?w=400&h=250&fit=crop" alt="Skoda Karoq">
                     <button class="favorite-btn">♥</button>
                 </div>
                 <div class="car-content">
@@ -378,7 +456,7 @@
             <!-- MASINA 3 -->
             <div class="car-card">
                 <div class="car-image">
-                    <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=400&h=250&fit=crop" alt="Volkswagen">
+                    <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=400&h=250&fit=crop" alt="Volkswagen Golf">
                     <button class="favorite-btn">♥</button>
                 </div>
                 <div class="car-content">
@@ -397,6 +475,77 @@
                     </div>
                 </div>
             </div>
+
+            <!-- MASINA 4 -->
+            <div class="car-card">
+                <div class="car-badge">PREMIUM</div>
+                <div class="car-image">
+                    <img src="https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=400&h=250&fit=crop" alt="Audi A4">
+                    <button class="favorite-btn">♥</button>
+                </div>
+                <div class="car-content">
+                    <h3 class="car-title">Audi A4 2.0 TDI</h3>
+                    <p class="car-seller">Dealer auto</p>
+                    <div class="car-details">
+                        <div class="car-detail">📅 2022</div>
+                        <div class="car-detail">🛣️ 23.200 km</div>
+                        <div class="car-detail">⛽ Motorină</div>
+                        <div class="car-detail">⚙️ Automată</div>
+                    </div>
+                    <div class="car-price">32.999 €</div>
+                    <div class="car-actions">
+                        <a href="detalii.html" class="details-btn">Vezi detalii</a>
+                        <button class="compare-btn">Compară</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MASINA 5 -->
+            <div class="car-card">
+                <div class="car-image">
+                    <img src="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?w=400&h=250&fit=crop" alt="Dacia Duster">
+                    <button class="favorite-btn">♥</button>
+                </div>
+                <div class="car-content">
+                    <h3 class="car-title">Dacia Duster 1.5 dCi</h3>
+                    <p class="car-seller">Vânzător individual</p>
+                    <div class="car-details">
+                        <div class="car-detail">📅 2021</div>
+                        <div class="car-detail">🛣️ 45.600 km</div>
+                        <div class="car-detail">⛽ Motorină</div>
+                        <div class="car-detail">⚙️ Manuală</div>
+                    </div>
+                    <div class="car-price">18.300 €</div>
+                    <div class="car-actions">
+                        <a href="detalii.html" class="details-btn">Vezi detalii</a>
+                        <button class="compare-btn">Compară</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MASINA 6 -->
+            <div class="car-card">
+                <div class="car-badge">NOU</div>
+                <div class="car-image">
+                    <img src="https://images.unsplash.com/photo-1563720223485-8f6a4bca015c?w=400&h=250&fit=crop" alt="Mercedes C-Class">
+                    <button class="favorite-btn">♥</button>
+                </div>
+                <div class="car-content">
+                    <h3 class="car-title">Mercedes C-Class C200</h3>
+                    <p class="car-seller">Dealer auto</p>
+                    <div class="car-details">
+                        <div class="car-detail">📅 2022</div>
+                        <div class="car-detail">🛣️ 18.900 km</div>
+                        <div class="car-detail">⛽ Benzină</div>
+                        <div class="car-detail">⚙️ Automată</div>
+                    </div>
+                    <div class="car-price">35.800 €</div>
+                    <div class="car-actions">
+                        <a href="detalii.html" class="details-btn">Vezi detalii</a>
+                        <button class="compare-btn">Compară</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -408,21 +557,44 @@
                 <a href="#">Cine suntem</a>
                 <a href="#">Cum cumpăr</a>
                 <a href="#">Cum vând</a>
+                <a href="#">Contact</a>
             </div>
             <div class="footer-section">
                 <h3>Ajutor</h3>
                 <a href="#">Întrebări frecvente</a>
                 <a href="#">Termeni și condiții</a>
+                <a href="#">Politica de confidențialitate</a>
             </div>
             <div class="footer-section">
                 <h3>Social</h3>
                 <a href="#">Facebook</a>
                 <a href="#">Instagram</a>
+                <a href="#">YouTube</a>
             </div>
         </div>
         <div class="copyright">
             &copy; 2024 AutoNova. Toate drepturile rezervate.
         </div>
     </footer>
+
+    <script>
+        // Script pentru butoanele favorite
+        document.addEventListener('DOMContentLoaded', function() {
+            const favoriteBtns = document.querySelectorAll('.favorite-btn');
+            
+            favoriteBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    if (this.classList.contains('active')) {
+                        this.style.color = 'red';
+                    } else {
+                        this.style.color = 'gray';
+                    }
+                });
+            });
+
+            console.log('Site-ul AutoNova este gata! 🚗');
+        });
+    </script>
 </body>
 </html>
