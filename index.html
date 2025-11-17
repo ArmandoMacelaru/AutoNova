@@ -360,7 +360,7 @@
                 <a href="welcome.html">Acasă</a>
                 <a href="index.html">Mașini</a>
                 <a href="adauga.html">Vinde mașină</a>
-                <a href="login.html">Contul meu</a>
+                <a href="login.html" id="loginLink">Contul meu</a>
             </nav>
         </div>
     </header>
@@ -547,54 +547,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- MASINA 7 -->
-            <div class="car-card">
-                <div class="car-badge">OFERTĂ</div>
-                <div class="car-image">
-                    <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=400&h=250&fit=crop" alt="Ford Focus">
-                    <button class="favorite-btn">♥</button>
-                </div>
-                <div class="car-content">
-                    <h3 class="car-title">Ford Focus 1.0 EcoBoost</h3>
-                    <p class="car-seller">Vânzător individual</p>
-                    <div class="car-details">
-                        <div class="car-detail">📅 2020</div>
-                        <div class="car-detail">🛣️ 62.100 km</div>
-                        <div class="car-detail">⛽ Benzină</div>
-                        <div class="car-detail">⚙️ Manuală</div>
-                    </div>
-                    <div class="car-price">16.800 €</div>
-                    <div class="car-actions">
-                        <a href="detalii-ford.html" class="details-btn">Vezi detalii</a>
-                        <button class="compare-btn">Compară</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- MASINA 8 -->
-            <div class="car-card">
-                <div class="car-badge">ECOLOGIC</div>
-                <div class="car-image">
-                    <img src="https://images.unsplash.com/photo-1592198084033-aade902d1aae?w=400&h=250&fit=crop" alt="Toyota RAV4">
-                    <button class="favorite-btn">♥</button>
-                </div>
-                <div class="car-content">
-                    <h3 class="car-title">Toyota RAV4 Hybrid</h3>
-                    <p class="car-seller">Dealer auto</p>
-                    <div class="car-details">
-                        <div class="car-detail">📅 2022</div>
-                        <div class="car-detail">🛣️ 15.700 km</div>
-                        <div class="car-detail">⛽ Hibrid</div>
-                        <div class="car-detail">⚙️ Automată</div>
-                    </div>
-                    <div class="car-price">34.200 €</div>
-                    <div class="car-actions">
-                        <a href="detalii-toyota.html" class="details-btn">Vezi detalii</a>
-                        <button class="compare-btn">Compară</button>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 
@@ -627,8 +579,32 @@
     </footer>
 
     <script>
+        // === SISTEM NAVIGAȚIE DINAMICĂ ===
+        
+        // Verifică dacă utilizatorul este logat
+        function isLoggedIn() {
+            return localStorage.getItem('autonova_current_user') !== null;
+        }
+
+        // Obține utilizatorul curent
+        function getCurrentUser() {
+            return JSON.parse(localStorage.getItem('autonova_current_user'));
+        }
+
+        // Actualizează navigația
+        function updateNavigation() {
+            const loginLink = document.getElementById('loginLink');
+            if (loginLink && isLoggedIn()) {
+                const user = getCurrentUser();
+                loginLink.innerHTML = `Bună, ${user.username} | <a href="logout.html" style="color: white; text-decoration: none;">Logout</a>`;
+            }
+        }
+
         // Script pentru butoanele favorite
         document.addEventListener('DOMContentLoaded', function() {
+            // Actualizează navigația la încărcarea paginii
+            updateNavigation();
+
             const favoriteBtns = document.querySelectorAll('.favorite-btn');
             
             favoriteBtns.forEach(btn => {
