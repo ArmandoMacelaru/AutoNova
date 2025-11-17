@@ -171,11 +171,12 @@
 <body>
     <header class="main-header">
         <div class="header-container">
-            <a href="index.html" class="logo">AUTONOVA</a>
+            <a href="welcome.html" class="logo">AUTONOVA</a>
             <nav class="main-nav">
+                <a href="welcome.html">Acasă</a>
                 <a href="index.html">Mașini</a>
                 <a href="adauga.html">Vinde mașină</a>
-                <a href="login.html">Contul meu</a>
+                <a href="login.html" id="loginLink">Contul meu</a>
             </nav>
         </div>
     </header>
@@ -252,8 +253,18 @@
             return JSON.parse(localStorage.getItem('autonova_current_user'));
         }
 
+        // Actualizează navigația
+        function updateNavigation() {
+            const loginLink = document.getElementById('loginLink');
+            if (loginLink && isLoggedIn()) {
+                const user = getCurrentUser();
+                loginLink.innerHTML = `Bună, ${user.username} | <a href="logout.html" style="color: white; text-decoration: none;">Logout</a>`;
+            }
+        }
+
         // === PORNIRE ===
         initializeUsers();
+        updateNavigation();
 
         // Login form
         document.getElementById('loginForm').addEventListener('submit', function(e) {
@@ -267,6 +278,7 @@
             
             if (result.success) {
                 showMessage('✅ Te-ai logat cu succes! Redirecționare...', 'success');
+                updateNavigation(); // Actualizează navigația imediat
                 
                 setTimeout(() => {
                     window.location.href = 'index.html';
