@@ -99,21 +99,22 @@
             transform: translateY(-3px);
         }
 
-        /* Animații mașini pe traseu */
+        /* Animații mașini reale pe traseu */
         .road-container {
             position: absolute;
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 200px;
+            height: 250px;
             overflow: hidden;
+            z-index: 1;
         }
 
         .road {
             position: absolute;
             bottom: 0;
             width: 100%;
-            height: 100px;
+            height: 120px;
             background: #333;
         }
 
@@ -122,15 +123,15 @@
             top: 50%;
             left: 0;
             width: 200%;
-            height: 4px;
+            height: 6px;
             background: repeating-linear-gradient(
                 90deg,
                 white,
-                white 20px,
-                transparent 20px,
-                transparent 40px
+                white 30px,
+                transparent 30px,
+                transparent 60px
             );
-            animation: roadMove 3s linear infinite;
+            animation: roadMove 2s linear infinite;
         }
 
         @keyframes roadMove {
@@ -138,95 +139,114 @@
             100% { transform: translateX(-50%); }
         }
 
-        .car {
+        /* Stiluri pentru mașini reale */
+        .real-car {
             position: absolute;
-            width: 120px;
-            height: 60px;
-            background: currentColor;
-            border-radius: 10px 20px 10px 10px;
-            animation: carDrive 8s linear infinite;
+            width: 200px;
+            height: 80px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            animation: carDrive linear infinite;
+            filter: drop-shadow(2px 2px 5px rgba(0,0,0,0.5));
         }
 
-        .car::before {
-            content: '';
-            position: absolute;
-            top: -15px;
-            left: 10px;
-            width: 40px;
-            height: 20px;
-            background: currentColor;
-            border-radius: 5px 5px 0 0;
-        }
-
-        .car::after {
-            content: '';
-            position: absolute;
-            top: -10px;
-            right: 10px;
-            width: 30px;
-            height: 15px;
-            background: currentColor;
-            border-radius: 5px 5px 0 0;
-        }
-
-        .wheel {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background: #333;
-            border-radius: 50%;
-            bottom: -5px;
-            animation: wheelSpin 1s linear infinite;
-        }
-
-        .wheel-front { left: 15px; }
-        .wheel-back { right: 15px; }
-
-        @keyframes wheelSpin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* Mașini diferite */
-        .car-1 {
-            color: #ff6a00;
-            bottom: 60px;
+        /* Mașini diferite cu viteze și poziții diferite */
+        .car-bmw {
+            background-image: url('https://images.unsplash.com/photo-1555215695-3004980ad54e?w=300&h=150&fit=crop');
+            bottom: 70px;
+            animation-duration: 12s;
             animation-delay: 0s;
         }
 
-        .car-2 {
-            color: #00a8ff;
-            bottom: 80px;
-            animation-delay: -2s;
-            animation-duration: 10s;
+        .car-audi {
+            background-image: url('https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=300&h=150&fit=crop');
+            bottom: 90px;
+            animation-duration: 15s;
+            animation-delay: 2s;
         }
 
-        .car-3 {
-            color: #9b59b6;
-            bottom: 100px;
-            animation-delay: -4s;
-            animation-duration: 12s;
+        .car-mercedes {
+            background-image: url('https://images.unsplash.com/photo-1563720223485-8f6a4bca015c?w=300&h=150&fit=crop');
+            bottom: 110px;
+            animation-duration: 18s;
+            animation-delay: 4s;
         }
 
-        .car-4 {
-            color: #2ecc71;
-            bottom: 120px;
-            animation-delay: -6s;
+        .car-skoda {
+            background-image: url('https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?w=300&h=150&fit=crop');
+            bottom: 130px;
             animation-duration: 14s;
+            animation-delay: 1s;
+        }
+
+        .car-volkswagen {
+            background-image: url('https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=300&h=150&fit=crop');
+            bottom: 150px;
+            animation-duration: 16s;
+            animation-delay: 3s;
+        }
+
+        .car-porsche {
+            background-image: url('https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=300&h=150&fit=crop');
+            bottom: 60px;
+            animation-duration: 10s;
+            animation-delay: 5s;
+            width: 180px;
+            height: 70px;
         }
 
         @keyframes carDrive {
-            0% { left: -150px; }
-            100% { left: 100%; }
+            0% { 
+                transform: translateX(-300px) scaleX(1);
+                opacity: 0;
+            }
+            5% {
+                opacity: 1;
+            }
+            95% {
+                opacity: 1;
+            }
+            100% { 
+                transform: translateX(calc(100vw + 300px)) scaleX(1);
+                opacity: 0;
+            }
+        }
+
+        /* Mașini care vin din direcția opusă */
+        .car-opposite {
+            animation-direction: reverse;
+            transform: scaleX(-1);
+        }
+
+        .car-toyota {
+            background-image: url('https://images.unsplash.com/photo-1592198084033-aade902d1aae?w=300&h=150&fit=crop');
+            bottom: 80px;
+            animation-duration: 13s;
+            animation-delay: 1.5s;
+        }
+
+        .car-ford {
+            background-image: url('https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=300&h=150&fit=crop');
+            bottom: 100px;
+            animation-duration: 17s;
+            animation-delay: 3.5s;
+        }
+
+        .car-volvo {
+            background-image: url('https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=300&h=150&fit=crop');
+            bottom: 120px;
+            animation-duration: 19s;
+            animation-delay: 6s;
         }
 
         /* Elemente decorative */
         .building {
             position: absolute;
-            bottom: 100px;
-            width: 40px;
+            bottom: 120px;
             background: #34495e;
             border-radius: 5px 5px 0 0;
+            z-index: 0;
         }
 
         .building::before {
@@ -238,12 +258,12 @@
             bottom: 0;
         }
 
-        .building-1 { left: 10%; height: 150px; }
-        .building-2 { left: 20%; height: 200px; }
-        .building-3 { left: 35%; height: 120px; }
-        .building-4 { left: 50%; height: 180px; }
-        .building-5 { left: 65%; height: 160px; }
-        .building-6 { left: 80%; height: 140px; }
+        .building-1 { left: 10%; height: 150px; width: 50px; }
+        .building-2 { left: 20%; height: 200px; width: 60px; }
+        .building-3 { left: 35%; height: 120px; width: 45px; }
+        .building-4 { left: 50%; height: 180px; width: 55px; }
+        .building-5 { left: 65%; height: 160px; width: 50px; }
+        .building-6 { left: 80%; height: 140px; width: 40px; }
 
         /* Stele */
         .star {
@@ -286,12 +306,90 @@
             font-size: 0.9rem;
         }
 
+        /* Nori */
+        .cloud {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            animation: cloudMove linear infinite;
+            z-index: 0;
+        }
+
+        .cloud-1 {
+            top: 20%;
+            left: -100px;
+            width: 120px;
+            height: 40px;
+            animation-duration: 40s;
+        }
+
+        .cloud-2 {
+            top: 30%;
+            left: -150px;
+            width: 180px;
+            height: 50px;
+            animation-duration: 50s;
+            animation-delay: 10s;
+        }
+
+        .cloud-3 {
+            top: 15%;
+            left: -200px;
+            width: 160px;
+            height: 45px;
+            animation-duration: 45s;
+            animation-delay: 5s;
+        }
+
+        @keyframes cloudMove {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(100vw + 300px)); }
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .logo { font-size: 2.5rem; }
             .tagline { font-size: 1.2rem; }
             .cta-buttons { flex-direction: column; }
             .stats { flex-wrap: wrap; justify-content: center; }
+            
+            .real-car {
+                width: 150px;
+                height: 60px;
+            }
+            
+            .car-porsche {
+                width: 130px;
+                height: 50px;
+            }
+        }
+
+        /* Efect de lumină pentru mașini */
+        .car-light {
+            position: absolute;
+            width: 10px;
+            height: 5px;
+            background: yellow;
+            border-radius: 50%;
+            filter: blur(2px);
+            opacity: 0;
+            animation: lightBlink 2s infinite;
+        }
+
+        .light-front {
+            bottom: 5px;
+            right: 10px;
+        }
+
+        .light-back {
+            bottom: 5px;
+            left: 10px;
+            background: red;
+        }
+
+        @keyframes lightBlink {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.8; }
         }
     </style>
 </head>
@@ -302,6 +400,11 @@
     <div class="star star-3"></div>
     <div class="star star-4"></div>
     <div class="star star-5"></div>
+
+    <!-- Nori -->
+    <div class="cloud cloud-1"></div>
+    <div class="cloud cloud-2"></div>
+    <div class="cloud cloud-3"></div>
 
     <!-- Clădiri -->
     <div class="building building-1"></div>
@@ -337,33 +440,56 @@
         </div>
     </div>
 
-    <!-- Animații mașini pe drum -->
+    <!-- Animații mașini reale pe drum -->
     <div class="road-container">
         <div class="road">
             <div class="road-line"></div>
             
-            <!-- Mașina 1 - Portocaliu -->
-            <div class="car car-1">
-                <div class="wheel wheel-front"></div>
-                <div class="wheel wheel-back"></div>
+            <!-- Mașini care merg de la stânga la dreapta -->
+            <div class="real-car car-bmw">
+                <div class="car-light light-front"></div>
+                <div class="car-light light-back"></div>
             </div>
             
-            <!-- Mașina 2 - Albastru -->
-            <div class="car car-2">
-                <div class="wheel wheel-front"></div>
-                <div class="wheel wheel-back"></div>
+            <div class="real-car car-audi">
+                <div class="car-light light-front"></div>
+                <div class="car-light light-back"></div>
             </div>
             
-            <!-- Mașina 3 - Mov -->
-            <div class="car car-3">
-                <div class="wheel wheel-front"></div>
-                <div class="wheel wheel-back"></div>
+            <div class="real-car car-mercedes">
+                <div class="car-light light-front"></div>
+                <div class="car-light light-back"></div>
             </div>
             
-            <!-- Mașina 4 - Verde -->
-            <div class="car car-4">
-                <div class="wheel wheel-front"></div>
-                <div class="wheel wheel-back"></div>
+            <div class="real-car car-skoda">
+                <div class="car-light light-front"></div>
+                <div class="car-light light-back"></div>
+            </div>
+            
+            <div class="real-car car-volkswagen">
+                <div class="car-light light-front"></div>
+                <div class="car-light light-back"></div>
+            </div>
+            
+            <div class="real-car car-porsche">
+                <div class="car-light light-front"></div>
+                <div class="car-light light-back"></div>
+            </div>
+
+            <!-- Mașini care merg de la dreapta la stânga -->
+            <div class="real-car car-toyota car-opposite">
+                <div class="car-light light-front"></div>
+                <div class="car-light light-back"></div>
+            </div>
+            
+            <div class="real-car car-ford car-opposite">
+                <div class="car-light light-front"></div>
+                <div class="car-light light-back"></div>
+            </div>
+            
+            <div class="real-car car-volvo car-opposite">
+                <div class="car-light light-front"></div>
+                <div class="car-light light-back"></div>
             </div>
         </div>
     </div>
@@ -417,6 +543,18 @@
                 
                 setTimeout(updateCount, 2000);
             });
+
+            // Adaugă efecte de viteză aleatorie pentru mașini
+            const cars = document.querySelectorAll('.real-car');
+            cars.forEach(car => {
+                // Viteză aleatorie ușor diferită pentru fiecare mașină
+                const randomSpeed = Math.random() * 5 + 10; // între 10 și 15 secunde
+                car.style.animationDuration = randomSpeed + 's';
+                
+                // Opacitate aleatorie pentru un efect mai natural
+                const randomOpacity = 0.7 + Math.random() * 0.3;
+                car.style.opacity = randomOpacity;
+            });
         });
 
         // Schimbă background gradient la hover pe butoane
@@ -429,6 +567,23 @@
                 document.body.style.animation = 'gradient 15s ease infinite';
             });
         });
+
+        // Redirecționare automată după 30 de secunde de inactivitate
+        let inactivityTimer;
+        function resetInactivityTimer() {
+            clearTimeout(inactivityTimer);
+            inactivityTimer = setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 30000); // 30 de secunde
+        }
+
+        // Resetează timer-ul la orice interacțiune cu utilizatorul
+        document.addEventListener('mousemove', resetInactivityTimer);
+        document.addEventListener('keypress', resetInactivityTimer);
+        document.addEventListener('click', resetInactivityTimer);
+        
+        // Pornește timer-ul
+        resetInactivityTimer();
     </script>
 </body>
 </html>
