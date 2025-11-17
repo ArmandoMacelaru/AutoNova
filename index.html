@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AutoNova - Piața auto nr. 1 din România</title>
+    <title>AutoNova - Piața auto nr. 1 din România | Mașini second hand</title>
     <style>
         /* RESET & BASE STYLES */
         * {
@@ -355,8 +355,9 @@
     <!-- HEADER -->
     <header class="main-header">
         <div class="header-container">
-            <a href="index.html" class="logo">AUTONOVA</a>
+            <a href="welcome.html" class="logo">AUTONOVA</a>
             <nav class="main-nav">
+                <a href="welcome.html">Acasă</a>
                 <a href="index.html">Mașini</a>
                 <a href="adauga.html">Vinde mașină</a>
                 <a href="login.html">Contul meu</a>
@@ -546,6 +547,54 @@
                     </div>
                 </div>
             </div>
+
+            <!-- MASINA 7 -->
+            <div class="car-card">
+                <div class="car-badge">OFERTĂ</div>
+                <div class="car-image">
+                    <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=400&h=250&fit=crop" alt="Ford Focus">
+                    <button class="favorite-btn">♥</button>
+                </div>
+                <div class="car-content">
+                    <h3 class="car-title">Ford Focus 1.0 EcoBoost</h3>
+                    <p class="car-seller">Vânzător individual</p>
+                    <div class="car-details">
+                        <div class="car-detail">📅 2020</div>
+                        <div class="car-detail">🛣️ 62.100 km</div>
+                        <div class="car-detail">⛽ Benzină</div>
+                        <div class="car-detail">⚙️ Manuală</div>
+                    </div>
+                    <div class="car-price">16.800 €</div>
+                    <div class="car-actions">
+                        <a href="detalii-ford.html" class="details-btn">Vezi detalii</a>
+                        <button class="compare-btn">Compară</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MASINA 8 -->
+            <div class="car-card">
+                <div class="car-badge">ECOLOGIC</div>
+                <div class="car-image">
+                    <img src="https://images.unsplash.com/photo-1592198084033-aade902d1aae?w=400&h=250&fit=crop" alt="Toyota RAV4">
+                    <button class="favorite-btn">♥</button>
+                </div>
+                <div class="car-content">
+                    <h3 class="car-title">Toyota RAV4 Hybrid</h3>
+                    <p class="car-seller">Dealer auto</p>
+                    <div class="car-details">
+                        <div class="car-detail">📅 2022</div>
+                        <div class="car-detail">🛣️ 15.700 km</div>
+                        <div class="car-detail">⛽ Hibrid</div>
+                        <div class="car-detail">⚙️ Automată</div>
+                    </div>
+                    <div class="car-price">34.200 €</div>
+                    <div class="car-actions">
+                        <a href="detalii-toyota.html" class="details-btn">Vezi detalii</a>
+                        <button class="compare-btn">Compară</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -591,6 +640,35 @@
                         this.style.color = 'gray';
                     }
                 });
+            });
+
+            // Căutare simplă
+            const searchInput = document.querySelector('.search-box input');
+            const searchBtn = document.querySelector('.search-btn');
+            const carCards = document.querySelectorAll('.car-card');
+
+            searchBtn.addEventListener('click', function() {
+                const searchTerm = searchInput.value.toLowerCase();
+                
+                carCards.forEach(card => {
+                    const title = card.querySelector('.car-title').textContent.toLowerCase();
+                    const details = card.querySelector('.car-details').textContent.toLowerCase();
+                    
+                    if (title.includes(searchTerm) || details.includes(searchTerm)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+
+            // Reset search on empty input
+            searchInput.addEventListener('input', function() {
+                if (this.value === '') {
+                    carCards.forEach(card => {
+                        card.style.display = 'block';
+                    });
+                }
             });
 
             console.log('Site-ul AutoNova este gata! 🚗');
