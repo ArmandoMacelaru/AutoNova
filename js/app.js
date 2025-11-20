@@ -23,7 +23,7 @@ function initializeCars() {
                 id: 1,
                 title: "Skoda Karoq 1.5 TSI",
                 seller: "Vânzător individual",
-                price: "20.999 €",
+                price: "14.999 €",
                 year: "2020",
                 km: "56.300 km",
                 fuel: "Benzină",
@@ -47,7 +47,7 @@ function initializeCars() {
                 id: 3,
                 title: "Volkswagen Golf 1.6 TDI",
                 seller: "Vânzător individual",
-                price: "15.750 €",
+                price: "7.750 €",
                 year: "2019",
                 km: "78.400 km",
                 fuel: "Motorină",
@@ -95,5 +95,6 @@ function initializeCars() {
 }
 
 // ... restul codului tău original din app.js rămâne la fel
+
 
 
