@@ -29,7 +29,7 @@ function initializeCars() {
                 fuel: "Benzină",
                 gearbox: "Automată",
                 badge: "REDUS",
-                image: "https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?w=400&h=250&fit=crop"
+                image: "https://ireland.apollo.olxcdn.com/v1/files/5p4k6ec367yn-AUTOVITRO/image;s=644x461"
             },
             {
                 id: 2,
@@ -95,3 +95,4 @@ function initializeCars() {
 }
 
 // ... restul codului tău original din app.js rămâne la fel
+
