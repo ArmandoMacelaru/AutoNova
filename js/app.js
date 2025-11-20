@@ -52,7 +52,7 @@ function initializeCars() {
                 km: "78.400 km",
                 fuel: "Motorină",
                 gearbox: "Manuală",
-                image: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=400&h=250&fit=crop"
+                image: "https://frankfurt.apollo.olxcdn.com/v1/files/e1yctu2lsgfj3-RO/image;s=1000x750"
             },
             {
                 id: 4,
@@ -95,4 +95,5 @@ function initializeCars() {
 }
 
 // ... restul codului tău original din app.js rămâne la fel
+
 
