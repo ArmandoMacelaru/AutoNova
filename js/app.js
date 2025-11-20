@@ -47,7 +47,7 @@ function initializeCars() {
                 id: 3,
                 title: "Volkswagen Golf 1.6 TDI",
                 seller: "Vânzător individual",
-                price: "7.750 €",
+                price: "8.750 €",
                 year: "2019",
                 km: "78.400 km",
                 fuel: "Motorină",
@@ -95,6 +95,7 @@ function initializeCars() {
 }
 
 // ... restul codului tău original din app.js rămâne la fel
+
 
 
 
