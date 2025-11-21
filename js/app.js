@@ -58,13 +58,13 @@ function initializeCars() {
                 id: 4,
                 title: "Audi A4 2.0 TDI",
                 seller: "Dealer auto",
-                price: "32.999 €",
+                price: "6.999 €",
                 year: "2022",
                 km: "23.200 km",
                 fuel: "Motorină",
                 gearbox: "Automată",
                 badge: "PREMIUM",
-                image: "https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=400&h=250&fit=crop"
+                image: "https://frankfurt.apollo.olxcdn.com/v1/files/n9lp0u53l2h12-RO/image;s=2000x1500"
             },
             {
                 id: 5,
@@ -95,6 +95,7 @@ function initializeCars() {
 }
 
 // ... restul codului tău original din app.js rămâne la fel
+
 
 
 
