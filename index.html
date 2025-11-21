@@ -282,93 +282,6 @@
             background: #f0f0f0;
         }
 
-        /* ADD CAR FORM STYLES */
-        .add-car-section {
-            display: none;
-            background: white;
-            border-radius: 12px;
-            padding: 30px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-            max-width: 800px;
-            margin: 30px auto;
-        }
-
-        .add-car-section.active {
-            display: block;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #333;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 12px 15px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            font-size: 16px;
-            transition: border 0.3s;
-        }
-
-        .form-control:focus {
-            border-color: #ff6a00;
-            outline: none;
-        }
-
-        .form-row {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 15px;
-        }
-
-        .form-col {
-            flex: 1;
-        }
-
-        .btn {
-            background: #ff6a00;
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 16px;
-            transition: background 0.3s;
-        }
-
-        .btn:hover {
-            background: #e65e00;
-        }
-
-        .btn-block {
-            display: block;
-            width: 100%;
-            padding: 15px;
-            font-size: 18px;
-        }
-
-        .btn-secondary {
-            background: #6c757d;
-            margin-right: 10px;
-        }
-
-        .btn-secondary:hover {
-            background: #5a6268;
-        }
-
-        .form-actions {
-            display: flex;
-            gap: 10px;
-        }
-
         /* FOOTER */
         .main-footer {
             background: #333;
@@ -435,15 +348,6 @@
             .filter-container {
                 justify-content: center;
             }
-
-            .form-row {
-                flex-direction: column;
-                gap: 0;
-            }
-
-            .form-actions {
-                flex-direction: column;
-            }
         }
     </style>
 </head>
@@ -455,7 +359,7 @@
             <nav class="main-nav">
                 <a href="welcome.html">Acasă</a>
                 <a href="index.html">Mașini</a>
-                <a href="#" id="addCarBtn">Vinde mașină</a>
+                <a href="adauga.html">Vinde mașină</a>
                 <a href="login.html" id="loginLink">Contul meu</a>
             </nav>
         </div>
@@ -500,113 +404,176 @@
         </div>
     </section>
 
-    <!-- ADD CAR FORM SECTION -->
-    <div class="container">
-        <div class="add-car-section" id="addCarSection">
-            <h2 class="page-title">Vinde mașina ta pe AutoNova</h2>
-            
-            <form id="add-car-form">
-                <div class="form-row">
-                    <div class="form-col">
-                        <div class="form-group">
-                            <label for="make">Marca *</label>
-                            <input type="text" id="make" class="form-control" required placeholder="ex: BMW">
-                        </div>
-                    </div>
-                    <div class="form-col">
-                        <div class="form-group">
-                            <label for="model">Model *</label>
-                            <input type="text" id="model" class="form-control" required placeholder="ex: Seria 3">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-col">
-                        <div class="form-group">
-                            <label for="year">An de fabricație *</label>
-                            <input type="number" id="year" class="form-control" min="1990" max="2024" required placeholder="ex: 2021">
-                        </div>
-                    </div>
-                    <div class="form-col">
-                        <div class="form-group">
-                            <label for="price">Preț (€) *</label>
-                            <input type="number" id="price" class="form-control" min="0" required placeholder="ex: 15000">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-col">
-                        <div class="form-group">
-                            <label for="fuel">Combustibil *</label>
-                            <select id="fuel" class="form-control" required>
-                                <option value="">Selectează combustibilul</option>
-                                <option value="benzina">Benzină</option>
-                                <option value="motorina">Motorină</option>
-                                <option value="gpl">GPL</option>
-                                <option value="hibrid">Hibrid</option>
-                                <option value="electric">Electric</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-col">
-                        <div class="form-group">
-                            <label for="transmission">Transmisie *</label>
-                            <select id="transmission" class="form-control" required>
-                                <option value="">Selectează transmisia</option>
-                                <option value="manual">Manuală</option>
-                                <option value="automat">Automată</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-col">
-                        <div class="form-group">
-                            <label for="mileage">Kilometraj (km) *</label>
-                            <input type="number" id="mileage" class="form-control" min="0" required placeholder="ex: 45000">
-                        </div>
-                    </div>
-                    <div class="form-col">
-                        <div class="form-group">
-                            <label for="color">Culoare *</label>
-                            <input type="text" id="color" class="form-control" required placeholder="ex: Alb">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="description">Descriere mașină</label>
-                    <textarea id="description" class="form-control" rows="4" placeholder="Descrie starea mașinii, dotările, istoricul..."></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label for="images">Imagini (URL-uri separate prin virgulă)</label>
-                    <textarea id="images" class="form-control" rows="2" placeholder="https://example.com/image1.jpg, https://example.com/image2.jpg"></textarea>
-                    <small style="color: #666;">Adaugă link-uri către imagini de pe internet</small>
-                </div>
-
-                <div class="form-group">
-                    <label for="contact">Date de contact *</label>
-                    <input type="text" id="contact" class="form-control" required placeholder="Telefon sau email">
-                </div>
-
-                <div class="form-actions">
-                    <button type="button" class="btn btn-secondary" id="cancelBtn">Anulează</button>
-                    <button type="submit" class="btn btn-block">Adaugă Anunțul</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
     <!-- MAIN CONTENT -->
     <div class="container">
         <h1 class="page-title">Mașini second hand în România</h1>
         
-        <div class="catalog-grid" id="carsGrid">
-            <!-- Mașinile vor fi afișate aici dinamic prin JavaScript -->
+        <div class="catalog-grid">
+            <!-- SKODA SUPERB -->
+            <div class="car-card">
+                <div class="car-badge">PREMIUM</div>
+                <div class="car-image">
+                    <img src="https://media.discordapp.net/attachments/914645674677661736/1441093466984681573/20250702_205622.jpg?ex=69213320&is=691fe1a0&hm=2a5cb7db5c738cbb6edb6e2d4d9753f1663fe4f52a57534dcdc12e56aebc672c&=&format=webp&width=1366&height=769" alt="Skoda Superb">
+                    <button class="favorite-btn">♥</button>
+                </div>
+                <div class="car-content">
+                    <h3 class="car-title">Skoda Superb 2.0 TDI</h3>
+                    <p class="car-seller">Dealer auto</p>
+                    <div class="car-details">
+                        <div class="car-detail">📅 2016</div>
+                        <div class="car-detail">🛣️ 258.000 km</div>
+                        <div class="car-detail">⛽ Motorină</div>
+                        <div class="car-detail">⚙️ Automată</div>
+                    </div>
+                    <div class="car-price">8.500 €</div>
+                    <div class="car-actions">
+                        <a href="skoda-superb.html" class="details-btn">Vezi detalii</a>
+                        <button class="compare-btn">Compară</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BMW SERIA 3 -->
+            <div class="car-card">
+                <div class="car-badge">NOU</div>
+                <div class="car-image">
+                    <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=400&h=250&fit=crop" alt="BMW Seria 3">
+                    <button class="favorite-btn">♥</button>
+                </div>
+                <div class="car-content">
+                    <h3 class="car-title">BMW Seria 3 320d</h3>
+                    <p class="car-seller">Dealer auto</p>
+                    <div class="car-details">
+                        <div class="car-detail">📅 2021</div>
+                        <div class="car-detail">🛣️ 42.100 km</div>
+                        <div class="car-detail">⛽ Motorină</div>
+                        <div class="car-detail">⚙️ Automată</div>
+                    </div>
+                    <div class="car-price">28.500 €</div>
+                    <div class="car-actions">
+                        <a href="detalii-bmw.html" class="details-btn">Vezi detalii</a>
+                        <button class="compare-btn">Compară</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SKODA KAROQ -->
+            <div class="car-card">
+                <div class="car-badge">REDUS</div>
+                <div class="car-image">
+                    <img src="https://ireland.apollo.olxcdn.com/v1/files/5p4k6ec367yn-AUTOVITRO/image;s=644x461" alt="Skoda Karoq">
+                    <button class="favorite-btn">♥</button>
+                </div>
+                <div class="car-content">
+                    <h3 class="car-title">Skoda Karoq 1.5 TSI</h3>
+                    <p class="car-seller">Vânzător individual</p>
+                    <div class="car-details">
+                        <div class="car-detail">📅 2020</div>
+                        <div class="car-detail">🛣️ 56.300 km</div>
+                        <div class="car-detail">⛽ Benzină</div>
+                        <div class="car-detail">⚙️ Automată</div>
+                    </div>
+                    <div class="car-price">14.999 €</div>
+                    <div class="car-actions">
+                        <a href="detalii-skoda.html" class="details-btn">Vezi detalii</a>
+                        <button class="compare-btn">Compară</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VOLKSWAGEN GOLF -->
+            <div class="car-card">
+                <div class="car-image">
+                    <img src="https://frankfurt.apollo.olxcdn.com/v1/files/e1yctu2lsgfj3-RO/image;s=1000x750" alt="Volkswagen Golf">
+                    <button class="favorite-btn">♥</button>
+                </div>
+                <div class="car-content">
+                    <h3 class="car-title">Volkswagen Golf 1.6 TDI</h3>
+                    <p class="car-seller">Vânzător individual</p>
+                    <div class="car-details">
+                        <div class="car-detail">📅 2019</div>
+                        <div class="car-detail">🛣️ 78.400 km</div>
+                        <div class="car-detail">⛽ Motorină</div>
+                        <div class="car-detail">⚙️ Manuală</div>
+                    </div>
+                    <div class="car-price">8.750 €</div>
+                    <div class="car-actions">
+                        <a href="detalii-volkswagen.html" class="details-btn">Vezi detalii</a>
+                        <button class="compare-btn">Compară</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AUDI A4 -->
+            <div class="car-card">
+                <div class="car-badge">PREMIUM</div>
+                <div class="car-image">
+                    <img src="https://frankfurt.apollo.olxcdn.com/v1/files/n9lp0u53l2h12-RO/image;s=2000x1500" alt="Audi A4">
+                    <button class="favorite-btn">♥</button>
+                </div>
+                <div class="car-content">
+                    <h3 class="car-title">Audi A4 2.0 TDI</h3>
+                    <p class="car-seller">Dealer auto</p>
+                    <div class="car-details">
+                        <div class="car-detail">📅 2022</div>
+                        <div class="car-detail">🛣️ 23.200 km</div>
+                        <div class="car-detail">⛽ Motorină</div>
+                        <div class="car-detail">⚙️ Automată</div>
+                    </div>
+                    <div class="car-price">6.999 €</div>
+                    <div class="car-actions">
+                        <a href="detalii-audi.html" class="details-btn">Vezi detalii</a>
+                        <button class="compare-btn">Compară</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DACIA DUSTER -->
+            <div class="car-card">
+                <div class="car-image">
+                    <img src="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?w=400&h=250&fit=crop" alt="Dacia Duster">
+                    <button class="favorite-btn">♥</button>
+                </div>
+                <div class="car-content">
+                    <h3 class="car-title">Dacia Duster 1.5 dCi</h3>
+                    <p class="car-seller">Vânzător individual</p>
+                    <div class="car-details">
+                        <div class="car-detail">📅 2021</div>
+                        <div class="car-detail">🛣️ 45.600 km</div>
+                        <div class="car-detail">⛽ Motorină</div>
+                        <div class="car-detail">⚙️ Manuală</div>
+                    </div>
+                    <div class="car-price">18.300 €</div>
+                    <div class="car-actions">
+                        <a href="detalii-dacia.html" class="details-btn">Vezi detalii</a>
+                        <button class="compare-btn">Compară</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MERCEDES C-CLASS -->
+            <div class="car-card">
+                <div class="car-badge">NOU</div>
+                <div class="car-image">
+                    <img src="https://images.unsplash.com/photo-1563720223485-8f6a4bca015c?w=400&h=250&fit=crop" alt="Mercedes C-Class">
+                    <button class="favorite-btn">♥</button>
+                </div>
+                <div class="car-content">
+                    <h3 class="car-title">Mercedes C-Class C200</h3>
+                    <p class="car-seller">Dealer auto</p>
+                    <div class="car-details">
+                        <div class="car-detail">📅 2022</div>
+                        <div class="car-detail">🛣️ 18.900 km</div>
+                        <div class="car-detail">⛽ Benzină</div>
+                        <div class="car-detail">⚙️ Automată</div>
+                    </div>
+                    <div class="car-price">35.800 €</div>
+                    <div class="car-actions">
+                        <a href="detalii-mercedes.html" class="details-btn">Vezi detalii</a>
+                        <button class="compare-btn">Compară</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -639,367 +606,75 @@
     </footer>
 
     <script>
-        // === APLICAȚIA PRINCIPALĂ AUTO-NOVA ===
-        class AutoNovaApp {
-            constructor() {
-                this.cars = this.loadCars();
-                this.currentUser = this.getCurrentUser();
-                this.init();
-            }
+        // === SISTEM NAVIGAȚIE DINAMICĂ ===
+        
+        // Verifică dacă utilizatorul este logat
+        function isLoggedIn() {
+            return localStorage.getItem('autonova_current_user') !== null;
+        }
 
-            init() {
-                this.updateNavigation();
-                this.attachEventListeners();
-                this.displayCars(this.cars);
-                console.log('AutoNova app initialized! 🚗');
-            }
+        // Obține utilizatorul curent
+        function getCurrentUser() {
+            return JSON.parse(localStorage.getItem('autonova_current_user'));
+        }
 
-            // === DATELE PENTRU MAȘINI ===
-            loadCars() {
-                const savedCars = localStorage.getItem('autonova_cars');
-                if (savedCars) {
-                    return JSON.parse(savedCars);
-                }
-
-                // DATELE INIȚIALE CU SKODA SUPERB
-                const initialCars = [
-                    {
-                        id: 1,
-                        make: "Skoda",
-                        model: "Superb 2.0 TDI",
-                        year: 2016,
-                        price: 8500,
-                        fuel: "motorina",
-                        transmission: "automat",
-                        mileage: 258800,
-                        color: "Negru",
-                        seller: "Dealer auto",
-                        image: "https://media.discordapp.net/attachments/914645674677661736/1441093466984681573/20250702_205622.jpg?ex=69213320&is=691fe1a0&hm=2a5cb7db5c738cbb6edb6e2d4d9753f1663fe4f52a57534dcdc12e56aebc672c&=&format=webp&width=1366&height=769",
-                        badge: "PREMIUM",
-                        detailsPage: "skoda-superb.html"
-                    },
-                    {
-                        id: 2,
-                        make: "BMW",
-                        model: "Seria 3 320d",
-                        year: 2021,
-                        price: 28500,
-                        fuel: "motorina",
-                        transmission: "automat",
-                        mileage: 42100,
-                        color: "Alb",
-                        seller: "Dealer auto",
-                        image: "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=400&h=250&fit=crop",
-                        badge: "NOU",
-                        detailsPage: "detalii-bmw.html"
-                    },
-                    {
-                        id: 3,
-                        make: "Skoda",
-                        model: "Karoq 1.5 TSI",
-                        year: 2020,
-                        price: 14999,
-                        fuel: "benzina",
-                        transmission: "automat",
-                        mileage: 56300,
-                        color: "Roșu",
-                        seller: "Vânzător individual",
-                        image: "https://ireland.apollo.olxcdn.com/v1/files/5p4k6ec367yn-AUTOVITRO/image;s=644x461",
-                        badge: "REDUS",
-                        detailsPage: "detalii-skoda.html"
-                    },
-                    {
-                        id: 4,
-                        make: "Volkswagen",
-                        model: "Golf 1.6 TDI",
-                        year: 2019,
-                        price: 8750,
-                        fuel: "motorina",
-                        transmission: "manual",
-                        mileage: 78400,
-                        color: "Negru",
-                        seller: "Vânzător individual",
-                        image: "https://frankfurt.apollo.olxcdn.com/v1/files/e1yctu2lsgfj3-RO/image;s=1000x750",
-                        badge: "",
-                        detailsPage: "detalii-volkswagen.html"
-                    },
-                    {
-                        id: 5,
-                        make: "Audi",
-                        model: "A4 2.0 TDI",
-                        year: 2022,
-                        price: 6999,
-                        fuel: "motorina",
-                        transmission: "automat",
-                        mileage: 23200,
-                        color: "Alb",
-                        seller: "Dealer auto",
-                        image: "https://frankfurt.apollo.olxcdn.com/v1/files/n9lp0u53l2h12-RO/image;s=2000x1500",
-                        badge: "PREMIUM",
-                        detailsPage: "detalii-audi.html"
-                    },
-                    {
-                        id: 6,
-                        make: "Dacia",
-                        model: "Duster 1.5 dCi",
-                        year: 2021,
-                        price: 18300,
-                        fuel: "motorina",
-                        transmission: "manual",
-                        mileage: 45600,
-                        color: "Alb",
-                        seller: "Vânzător individual",
-                        image: "https://images.unsplash.com/photo-1601362840469-51e4d8d58785?w=400&h=250&fit=crop",
-                        badge: "",
-                        detailsPage: "detalii-dacia.html"
-                    },
-                    {
-                        id: 7,
-                        make: "Mercedes",
-                        model: "C-Class C200",
-                        year: 2022,
-                        price: 35800,
-                        fuel: "benzina",
-                        transmission: "automat",
-                        mileage: 18900,
-                        color: "Negru",
-                        seller: "Dealer auto",
-                        image: "https://images.unsplash.com/photo-1563720223485-8f6a4bca015c?w=400&h=250&fit=crop",
-                        badge: "NOU",
-                        detailsPage: "detalii-mercedes.html"
-                    }
-                ];
-
-                this.saveCars(initialCars);
-                return initialCars;
-            }
-
-            saveCars(cars) {
-                localStorage.setItem('autonova_cars', JSON.stringify(cars));
-            }
-
-            // === SISTEM UTILIZATOR ===
-            getCurrentUser() {
-                return JSON.parse(localStorage.getItem('autonova_current_user'));
-            }
-
-            isLoggedIn() {
-                return this.getCurrentUser() !== null;
-            }
-
-            updateNavigation() {
-                const loginLink = document.getElementById('loginLink');
-                if (loginLink && this.isLoggedIn()) {
-                    const user = this.getCurrentUser();
-                    loginLink.innerHTML = `Bună, ${user.username} | <a href="logout.html" style="color: white; text-decoration: none;">Logout</a>`;
-                }
-            }
-
-            // === AFIȘAREA MAȘINILOR ===
-            displayCars(cars) {
-                const grid = document.getElementById('carsGrid');
-                if (!grid) return;
-
-                grid.innerHTML = '';
-
-                cars.forEach(car => {
-                    const carCard = this.createCarCard(car);
-                    grid.innerHTML += carCard;
-                });
-
-                this.attachCarEvents();
-            }
-
-            createCarCard(car) {
-                return `
-                    <div class="car-card" data-car-id="${car.id}">
-                        ${car.badge ? `<div class="car-badge">${car.badge}</div>` : ''}
-                        <div class="car-image">
-                            <img src="${car.image}" alt="${car.make} ${car.model}" loading="lazy">
-                            <button class="favorite-btn">♥</button>
-                        </div>
-                        <div class="car-content">
-                            <h3 class="car-title">${car.make} ${car.model}</h3>
-                            <p class="car-seller">${car.seller}</p>
-                            <div class="car-details">
-                                <div class="car-detail">📅 ${car.year}</div>
-                                <div class="car-detail">🛣️ ${car.mileage.toLocaleString()} km</div>
-                                <div class="car-detail">⛽ ${this.getFuelName(car.fuel)}</div>
-                                <div class="car-detail">⚙️ ${this.getTransmissionName(car.transmission)}</div>
-                            </div>
-                            <div class="car-price">${car.price.toLocaleString()} €</div>
-                            <div class="car-actions">
-                                <a href="${car.detailsPage}" class="details-btn">Vezi detalii</a>
-                                <button class="compare-btn" data-car-id="${car.id}">Compară</button>
-                            </div>
-                        </div>
-                    </div>
-                `;
-            }
-
-            getFuelName(fuel) {
-                const fuelNames = {
-                    'benzina': 'Benzină',
-                    'motorina': 'Motorină',
-                    'gpl': 'GPL',
-                    'hibrid': 'Hibrid',
-                    'electric': 'Electric'
-                };
-                return fuelNames[fuel] || fuel;
-            }
-
-            getTransmissionName(transmission) {
-                const transmissionNames = {
-                    'manual': 'Manuală',
-                    'automat': 'Automată'
-                };
-                return transmissionNames[transmission] || transmission;
-            }
-
-            // === EVENT LISTENERS ===
-            attachEventListeners() {
-                this.attachSearch();
-                this.attachFilters();
-                this.attachFavoriteButtons();
-                this.attachCompareButtons();
-                this.attachAddCarForm();
-            }
-
-            attachCarEvents() {
-                this.attachFavoriteButtons();
-                this.attachCompareButtons();
-            }
-
-            attachSearch() {
-                const searchInput = document.querySelector('.search-box input');
-                const searchBtn = document.querySelector('.search-btn');
-
-                if (searchBtn && searchInput) {
-                    searchBtn.addEventListener('click', () => this.performSearch());
-                    searchInput.addEventListener('input', () => {
-                        if (searchInput.value === '') {
-                            this.displayCars(this.cars);
-                        }
-                    });
-                    searchInput.addEventListener('keypress', (e) => {
-                        if (e.key === 'Enter') {
-                            this.performSearch();
-                        }
-                    });
-                }
-            }
-
-            performSearch() {
-                const searchInput = document.querySelector('.search-box input');
-                const searchTerm = searchInput.value.toLowerCase().trim();
-                
-                if (searchTerm === '') {
-                    this.displayCars(this.cars);
-                    return;
-                }
-
-                const filteredCars = this.cars.filter(car => {
-                    const searchText = `${car.make} ${car.model} ${car.year} ${car.fuel} ${car.transmission} ${car.color}`.toLowerCase();
-                    return searchText.includes(searchTerm);
-                });
-
-                this.displayCars(filteredCars);
-            }
-
-            attachFavoriteButtons() {
-                const favoriteBtns = document.querySelectorAll('.favorite-btn');
-                favoriteBtns.forEach(btn => {
-                    btn.addEventListener('click', function() {
-                        this.classList.toggle('active');
-                        this.style.color = this.classList.contains('active') ? 'red' : 'gray';
-                    });
-                });
-            }
-
-            attachCompareButtons() {
-                const compareBtns = document.querySelectorAll('.compare-btn');
-                compareBtns.forEach(btn => {
-                    btn.addEventListener('click', function() {
-                        const carId = this.dataset.carId;
-                        const car = app.cars.find(c => c.id == carId);
-                        alert(`${car.make} ${car.model} a fost adăugată la comparație!`);
-                    });
-                });
-            }
-
-            attachAddCarForm() {
-                const addCarBtn = document.getElementById('addCarBtn');
-                const addCarSection = document.getElementById('addCarSection');
-                const cancelBtn = document.getElementById('cancelBtn');
-                const addCarForm = document.getElementById('add-car-form');
-
-                if (addCarBtn && addCarSection) {
-                    addCarBtn.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        if (!this.isLoggedIn()) {
-                            alert('Trebuie să fii logat pentru a adăuga o mașină!');
-                            window.location.href = 'login.html';
-                            return;
-                        }
-                        addCarSection.classList.add('active');
-                        window.scrollTo({ top: addCarSection.offsetTop - 100, behavior: 'smooth' });
-                    });
-                }
-
-                if (cancelBtn) {
-                    cancelBtn.addEventListener('click', () => {
-                        addCarSection.classList.remove('active');
-                        addCarForm.reset();
-                    });
-                }
-
-                if (addCarForm) {
-                    addCarForm.addEventListener('submit', (e) => this.handleAddCarForm(e));
-                }
-            }
-
-            handleAddCarForm(e) {
-                e.preventDefault();
-                
-                const carData = {
-                    id: Date.now(),
-                    make: document.getElementById('make').value,
-                    model: document.getElementById('model').value,
-                    year: parseInt(document.getElementById('year').value),
-                    price: parseInt(document.getElementById('price').value),
-                    fuel: document.getElementById('fuel').value,
-                    transmission: document.getElementById('transmission').value,
-                    mileage: parseInt(document.getElementById('mileage').value),
-                    color: document.getElementById('color').value,
-                    description: document.getElementById('description').value,
-                    images: document.getElementById('images').value.split(',').map(url => url.trim()),
-                    contact: document.getElementById('contact').value,
-                    seller: this.isLoggedIn() ? this.getCurrentUser().username : "Vânzător individual",
-                    image: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=400&h=250&fit=crop",
-                    badge: "NOU",
-                    detailsPage: `car-${Date.now()}.html`,
-                    date: new Date().toISOString()
-                };
-
-                // Adaugă mașina nouă
-                this.cars.unshift(carData);
-                this.saveCars(this.cars);
-                
-                // Reafișează mașinile
-                this.displayCars(this.cars);
-                
-                // Afișează mesaj de succes
-                alert('Mașina a fost adăugată cu succes! 🎉');
-                
-                // Resetează și ascunde formularul
-                e.target.reset();
-                document.getElementById('addCarSection').classList.remove('active');
+        // Actualizează navigația
+        function updateNavigation() {
+            const loginLink = document.getElementById('loginLink');
+            if (loginLink && isLoggedIn()) {
+                const user = getCurrentUser();
+                loginLink.innerHTML = `Bună, ${user.username} | <a href="logout.html" style="color: white; text-decoration: none;">Logout</a>`;
             }
         }
 
-        // Initializează aplicația
+        // Script pentru butoanele favorite
         document.addEventListener('DOMContentLoaded', function() {
-            window.app = new AutoNovaApp();
+            // Actualizează navigația la încărcarea paginii
+            updateNavigation();
+
+            const favoriteBtns = document.querySelectorAll('.favorite-btn');
+            
+            favoriteBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    if (this.classList.contains('active')) {
+                        this.style.color = 'red';
+                    } else {
+                        this.style.color = 'gray';
+                    }
+                });
+            });
+
+            // Căutare simplă
+            const searchInput = document.querySelector('.search-box input');
+            const searchBtn = document.querySelector('.search-btn');
+            const carCards = document.querySelectorAll('.car-card');
+
+            searchBtn.addEventListener('click', function() {
+                const searchTerm = searchInput.value.toLowerCase();
+                
+                carCards.forEach(card => {
+                    const title = card.querySelector('.car-title').textContent.toLowerCase();
+                    const details = card.querySelector('.car-details').textContent.toLowerCase();
+                    
+                    if (title.includes(searchTerm) || details.includes(searchTerm)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+
+            // Reset search on empty input
+            searchInput.addEventListener('input', function() {
+                if (this.value === '') {
+                    carCards.forEach(card => {
+                        card.style.display = 'block';
+                    });
+                }
+            });
+
+            console.log('Site-ul AutoNova este gata! 🚗');
         });
     </script>
 </body>
