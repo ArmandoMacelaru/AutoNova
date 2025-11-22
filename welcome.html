@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AutoNova - Bine ai venit!</title>
+    <title>Bun venit la AutoNova - Piața auto din România</title>
     <style>
         * {
             margin: 0;
@@ -13,263 +13,419 @@
 
         body {
             font-family: 'Arial', sans-serif;
-            overflow-x: hidden;
-        }
-
-        .video-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
+            color: white;
             overflow: hidden;
+            height: 100vh;
+            position: relative;
         }
 
-        .video-background video {
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            object-fit: cover;
-        }
-
-        .video-overlay {
+        /* Video background */
+        .video-background {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5);
+            object-fit: cover;
+            z-index: -2;
+        }
+
+        /* Overlay pentru a face video-ul mai vizibil */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: -1;
         }
 
         .welcome-container {
             position: relative;
-            z-index: 1;
-            min-height: 100vh;
+            height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            color: white;
-            padding: 20px;
+            z-index: 2;
+            padding: 0 20px;
         }
 
         .logo {
-            font-size: 4rem;
+            font-size: 5rem;
             font-weight: bold;
             margin-bottom: 1rem;
+            text-shadow: 3px 3px 15px rgba(0,0,0,0.8);
+            animation: pulse 2s infinite;
+            background: linear-gradient(45deg, #ff6a00, #ff8c00, #ffa500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .tagline {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 25px;
+            margin-top: 3rem;
+        }
+
+        .btn {
+            padding: 18px 35px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.4s ease;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            backdrop-filter: blur(10px);
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #ff6a00, #e65e00);
+            color: white;
+            box-shadow: 0 8px 25px rgba(255, 106, 0, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(255, 106, 0, 0.5);
+            background: linear-gradient(45deg, #e65e00, #ff6a00);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(15px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px) scale(1.05);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Statistici */
+        .stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 3rem;
+            opacity: 0.9;
+        }
+
+        .stat-item {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            min-width: 150px;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
             color: #ff6a00;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
-        .tagline {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            color: white;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        .stat-label {
+            font-size: 1rem;
+            margin-top: 8px;
+            opacity: 0.9;
         }
 
-        .welcome-buttons {
-            display: flex;
-            gap: 20px;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .btn {
-            padding: 15px 30px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            min-width: 200px;
-        }
-
-        .btn-primary {
-            background: #ff6a00;
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: #e65e00;
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-
-        .btn-secondary:hover {
-            background: white;
-            color: #333;
-            transform: translateY(-2px);
-        }
-
+        /* Features */
         .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            display: flex;
             gap: 30px;
-            margin-top: 4rem;
-            max-width: 1200px;
-            width: 100%;
+            margin-top: 2rem;
+            opacity: 0.9;
         }
 
-        .feature-card {
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
             background: rgba(255, 255, 255, 0.1);
+            padding: 12px 20px;
+            border-radius: 25px;
             backdrop-filter: blur(10px);
-            padding: 30px;
-            border-radius: 12px;
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        .feature-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: #ff6a00;
+        .feature-icon {
+            font-size: 1.2rem;
         }
 
-        .feature-card p {
-            font-size: 1rem;
-            line-height: 1.6;
+        /* Loading animation */
+        .loading-bar {
+            width: 200px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 2px;
+            margin-top: 20px;
+            overflow: hidden;
         }
 
-        /* Fallback pentru cazul în care videoclipul nu se încarcă */
-        @media (max-width: 768px) {
-            .logo {
-                font-size: 2.5rem;
-            }
-            
-            .tagline {
-                font-size: 1.2rem;
-            }
-            
-            .welcome-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .btn {
-                min-width: 250px;
-            }
-        }
-
-        /* Stil pentru cazul în care videoclipul eșuează */
-        .video-fallback {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
+        .loading-progress {
+            width: 0%;
             height: 100%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            z-index: -1;
+            background: linear-gradient(90deg, #ff6a00, #ff8c00);
+            border-radius: 2px;
+            transition: width 0.3s ease;
         }
 
-        .video-background.failed ~ .video-fallback {
-            display: block;
+        /* Responsive */
+        @media (max-width: 768px) {
+            .logo { font-size: 3rem; }
+            .tagline { font-size: 1.3rem; }
+            .cta-buttons { flex-direction: column; gap: 15px; }
+            .stats { flex-wrap: wrap; justify-content: center; gap: 20px; }
+            .features { flex-wrap: wrap; justify-content: center; }
+            .stat-item { min-width: 120px; padding: 15px; }
+            .btn { padding: 15px 25px; font-size: 1rem; }
+        }
+
+        /* Video controls hidden */
+        .video-background::-webkit-media-controls {
+            display: none !important;
+        }
+
+        /* Scris parțial transparent pentru overlay */
+        .text-overlay {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 0.8rem;
+            opacity: 0.7;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
         }
     </style>
 </head>
 <body>
-    <!-- Video Background -->
-    <div class="video-background" id="videoBackground">
-        <video autoplay muted loop playsinline id="backgroundVideo">
-            <!-- Mai multe surse pentru compatibilitate cross-browser -->
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-sports-racing-car-on-a-race-track-43755-large.mp4" type="video/mp4">
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-sports-racing-car-on-a-race-track-43755-large.webm" type="video/webm">
-            <!-- Fallback text pentru browsere vechi -->
-            Browser-ul tău nu suportă tag-ul video.
-        </video>
-        <div class="video-overlay"></div>
-    </div>
+    <!-- Video Background cu trafic real -->
+    <video class="video-background" autoplay muted loop playsinline>
+        <source src="https://assets.mixkit.co/videos/preview/mixkit-driving-on-a-two-lane-road-in-a-forest-43358-large.mp4" type="video/mp4">
+        <!-- Fallback image dacă video-ul nu funcționează -->
+    </video>
 
-    <!-- Fallback background dacă videoclipul nu funcționează -->
-    <div class="video-fallback"></div>
+    <!-- Overlay pentru contrast -->
+    <div class="overlay"></div>
 
-    <!-- Welcome Content -->
+    <!-- Container principal -->
     <div class="welcome-container">
         <h1 class="logo">AUTONOVA</h1>
         <p class="tagline">Piața auto nr. 1 din România</p>
         
-        <div class="welcome-buttons">
-            <a href="index.html" class="btn btn-primary">Vezi toate mașinile</a>
-            <a href="adauga.html" class="btn btn-secondary">Vinde mașina ta</a>
+        <div class="features">
+            <div class="feature">
+                <span class="feature-icon">🚗</span>
+                <span>Peste 10.000 mașini</span>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">⭐</span>
+                <span>Verificate profesional</span>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">💰</span>
+                <span>Cele mai bune prețuri</span>
+            </div>
         </div>
 
-        <div class="features">
-            <div class="feature-card">
-                <h3>🚗 Găsește mașina perfectă</h3>
-                <p>Peste 10.000 de mașini verificate, de la dealerii și persoane fizice de încredere.</p>
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-number">10.000+</div>
+                <div class="stat-label">Mașini disponibile</div>
             </div>
-            <div class="feature-card">
-                <h3>💰 Prețuri competitive</h3>
-                <p>Cele mai bune oferte de pe piață, cu opțiuni de finanțare flexibile.</p>
+            <div class="stat-item">
+                <div class="stat-number">50.000+</div>
+                <div class="stat-label">Clienți mulțumiți</div>
             </div>
-            <div class="feature-card">
-                <h3>🛡️ Vânzare sigură</h3>
-                <p>Sistem de verificare și protecție a cumpărătorului pentru o experiență fără griji.</p>
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Siguranță garantată</div>
             </div>
-            <div class="feature-card">
-                <h3>⚡ Rapid și ușor</h3>
-                <p>Interfață intuitivă care te ajută să găsești mașina potrivită în câteva minute.</p>
-            </div>
+        </div>
+
+        <div class="cta-buttons">
+            <a href="index.html" class="btn btn-primary">Vezi mașinile</a>
+            <a href="login.html" class="btn btn-secondary">Contul meu</a>
+        </div>
+
+        <div class="loading-bar">
+            <div class="loading-progress" id="loadingProgress"></div>
         </div>
     </div>
 
+    <div class="text-overlay">
+        Găsește mașina perfectă pentru tine
+    </div>
+
     <script>
+        // Efect de tipărire pentru tagline
         document.addEventListener('DOMContentLoaded', function() {
-            const video = document.getElementById('backgroundVideo');
-            const videoBackground = document.getElementById('videoBackground');
+            const tagline = document.querySelector('.tagline');
+            const originalText = tagline.textContent;
+            tagline.textContent = '';
             
-            // Încercăm să redăm videoclipul
-            video.play().catch(function(error) {
-                console.log('Video playback failed:', error);
-                // Dacă videoclipul eșuează, adăugăm clasa pentru fallback
-                videoBackground.classList.add('failed');
-            });
-
-            // Event listener pentru erori la videoclip
-            video.addEventListener('error', function() {
-                console.log('Video loading failed');
-                videoBackground.classList.add('failed');
-            });
-
-            // Fallback: dacă videoclipul nu se încarcă în 5 secunde, folosim fallback
-            setTimeout(function() {
-                if (video.readyState < 3) { // HAVE_FUTURE_DATA sau mai puțin
-                    console.log('Video loading timeout - using fallback');
-                    videoBackground.classList.add('failed');
+            let i = 0;
+            function typeWriter() {
+                if (i < originalText.length) {
+                    tagline.textContent += originalText.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 60);
                 }
-            }, 5000);
-
-            // Verifică dacă utilizatorul este pe dispozitiv mobil și oprește videoclipul pentru a economisi bateria
-            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-                video.pause();
-                videoBackground.classList.add('failed');
             }
+            
+            setTimeout(typeWriter, 800);
+
+            // Efect de fade-in pentru butoane
+            const buttons = document.querySelectorAll('.btn');
+            buttons.forEach((btn, index) => {
+                btn.style.opacity = '0';
+                btn.style.transform = 'translateY(30px)';
+                setTimeout(() => {
+                    btn.style.transition = 'all 0.6s ease';
+                    btn.style.opacity = '1';
+                    btn.style.transform = 'translateY(0)';
+                }, 1200 + (index * 300));
+            });
+
+            // Efect de count-up pentru statistici
+            const stats = document.querySelectorAll('.stat-number');
+            stats.forEach(stat => {
+                const target = parseInt(stat.textContent);
+                let current = 0;
+                const increment = target / 40;
+                
+                const updateCount = () => {
+                    if (current < target) {
+                        current += increment;
+                        stat.textContent = Math.floor(current) + '+';
+                        setTimeout(updateCount, 40);
+                    } else {
+                        stat.textContent = target + '+';
+                    }
+                };
+                
+                setTimeout(updateCount, 1500);
+            });
+
+            // Animație bara de loading
+            const loadingProgress = document.getElementById('loadingProgress');
+            let progress = 0;
+            const loadingInterval = setInterval(() => {
+                progress += 2;
+                loadingProgress.style.width = progress + '%';
+                
+                if (progress >= 100) {
+                    clearInterval(loadingInterval);
+                    // Restart loading bar
+                    setTimeout(() => {
+                        progress = 0;
+                        loadingProgress.style.width = '0%';
+                        loadingInterval;
+                    }, 1000);
+                }
+            }, 100);
+
+            // Efect de hover avansat pentru butoane
+            buttons.forEach(btn => {
+                btn.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px) scale(1.05)';
+                });
+                
+                btn.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+
+            // Schimbă opacitatea overlay-ului pentru efect dinamic
+            const overlay = document.querySelector('.overlay');
+            let overlayOpacity = 0.4;
+            let increasing = false;
+            
+            setInterval(() => {
+                if (increasing) {
+                    overlayOpacity += 0.01;
+                    if (overlayOpacity >= 0.5) increasing = false;
+                } else {
+                    overlayOpacity -= 0.01;
+                    if (overlayOpacity <= 0.3) increasing = true;
+                }
+                overlay.style.background = `rgba(0, 0, 0, ${overlayOpacity})`;
+            }, 100);
         });
 
-        // Sistem de navigare dinamică
-        function updateNavigation() {
-            const user = JSON.parse(localStorage.getItem('autonova_current_user'));
-            if (user) {
-                console.log('Utilizator logat:', user.username);
-            }
+        // Redirecționare automată după 45 de secunde de inactivitate
+        let inactivityTimer;
+        function resetInactivityTimer() {
+            clearTimeout(inactivityTimer);
+            inactivityTimer = setTimeout(() => {
+                // Efect de fade-out înainte de redirecționare
+                document.body.style.transition = 'opacity 1s ease';
+                document.body.style.opacity = '0';
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 1000);
+            }, 45000); // 45 de secunde
         }
 
-        document.addEventListener('DOMContentLoaded', updateNavigation);
+        // Resetează timer-ul la orice interacțiune
+        document.addEventListener('mousemove', resetInactivityTimer);
+        document.addEventListener('keypress', resetInactivityTimer);
+        document.addEventListener('click', resetInactivityTimer);
+        document.addEventListener('touchstart', resetInactivityTimer);
+        
+        // Pornește timer-ul
+        resetInactivityTimer();
+
+        // Fallback dacă video-ul nu se încarcă
+        const video = document.querySelector('.video-background');
+        video.addEventListener('error', function() {
+            // Dacă video-ul nu funcționează, folosește un background static cu gradient
+            document.body.style.background = 'linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d)';
+            document.body.style.animation = 'gradient 15s ease infinite';
+            video.style.display = 'none';
+        });
+
+        // Optimizare performanță
+        video.addEventListener('canplay', function() {
+            this.play().catch(e => {
+                console.log('Auto-play blocked, trying muted play');
+            });
+        });
+
+        // Efect de parallax simplu
+        document.addEventListener('mousemove', function(e) {
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            document.querySelector('.welcome-container').style.transform = 
+                `translate(${x * 10 - 5}px, ${y * 10 - 5}px)`;
+        });
+
+        console.log('Welcome page loaded with video background 🚗');
     </script>
 </body>
 </html>
