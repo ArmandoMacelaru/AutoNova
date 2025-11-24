@@ -33,9 +33,9 @@ class AutoNovaApp {
                 fuel: "hibrid",
                 transmission: "automat",
                 mileage: 12500,
-                color: "Alb Crystal",
+                color: "Dark",
                 seller: "Dealer autorizat Volvo",
-                image: "https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?w=400&h=250&fit=crop&auto=format",
+                image: "https://apruhonice.s3.eu-central-1.amazonaws.com/87/8787338a-6a56-49be-9f0e-3c9222028ba1.full.jpg",
                 badge: "ULTIMUL MODEL",
                 detailsPage: "volvo-xc60.html"
             },
@@ -447,3 +447,4 @@ document.addEventListener('DOMContentLoaded', function() {
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = AutoNovaApp;
 }
+
