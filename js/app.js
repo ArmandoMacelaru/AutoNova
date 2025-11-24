@@ -35,7 +35,7 @@ class AutoNovaApp {
                 mileage: 45800,
                 color: "Gri Metalizat",
                 seller: "Dealer auto",
-                image: "https://www.auto-data.ro/images/img108/Skoda-Superb-III-Facelift-2023.jpg",
+                image: "https://media.discordapp.net/attachments/914645674677661736/1441093466984681573/20250702_205622.jpg?ex=692527a0&is=6923d620&hm=2a96e89d07b680c796c5936ba226b4998bd4f8b13afd1e85dee5af63df2558d9&=&format=webp&width=1366&height=769",
                 badge: "PREMIUM",
                 detailsPage: "skoda-superb.html"
             },
@@ -432,3 +432,4 @@ document.addEventListener('DOMContentLoaded', function() {
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = AutoNovaApp;
 }
+
