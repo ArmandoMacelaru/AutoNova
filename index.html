@@ -12,18 +12,70 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --bg-primary: #f8f9fa;
+            --bg-secondary: #ffffff;
+            --bg-header: linear-gradient(135deg, #ff6a00 0%, #e65e00 100%);
+            --text-primary: #333333;
+            --text-secondary: #666666;
+            --text-muted: #999999;
+            --border-color: #e0e0e0;
+            --shadow-color: rgba(0,0,0,0.1);
+            --accent-color: #ff6a00;
+            --accent-hover: #e65e00;
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #1a1a1a;
+            --bg-secondary: #2d2d2d;
+            --bg-header: linear-gradient(135deg, #ff6a00 0%, #e65e00 100%);
+            --text-primary: #ffffff;
+            --text-secondary: #cccccc;
+            --text-muted: #888888;
+            --border-color: #404040;
+            --shadow-color: rgba(0,0,0,0.3);
+            --accent-color: #ff6a00;
+            --accent-hover: #e65e00;
+        }
+
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f8f9fa;
-            color: #333;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
             line-height: 1.6;
+            transition: all 0.3s ease;
+        }
+
+        /* THEME TOGGLE */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: var(--bg-secondary);
+            border: 2px solid var(--border-color);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            box-shadow: 0 2px 10px var(--shadow-color);
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            border-color: var(--accent-color);
         }
 
         /* HEADER */
         .main-header {
-            background: linear-gradient(135deg, #ff6a00 0%, #e65e00 100%);
+            background: var(--bg-header);
             padding: 15px 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px var(--shadow-color);
         }
 
         .header-container {
@@ -55,9 +107,9 @@
 
         /* SEARCH */
         .search-section {
-            background: white;
+            background: var(--bg-secondary);
             padding: 20px 0;
-            border-bottom: 1px solid #e0e0e0;
+            border-bottom: 1px solid var(--border-color);
         }
 
         .search-container {
@@ -76,30 +128,38 @@
         .search-box input {
             flex: 1;
             padding: 12px 15px;
-            border: 2px solid #ff6a00;
+            border: 2px solid var(--accent-color);
             border-radius: 8px;
             font-size: 16px;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+
+        .search-box input::placeholder {
+            color: var(--text-muted);
         }
 
         .search-btn {
-            background: #ff6a00;
+            background: var(--accent-color);
             color: white;
             border: none;
             padding: 12px 25px;
             border-radius: 8px;
             cursor: pointer;
             font-weight: bold;
+            transition: background 0.3s;
         }
 
         .search-btn:hover {
-            background: #e65e00;
+            background: var(--accent-hover);
         }
 
         /* FILTERS */
         .filters {
-            background: white;
+            background: var(--bg-secondary);
             padding: 15px 0;
-            border-bottom: 1px solid #e0e0e0;
+            border-bottom: 1px solid var(--border-color);
         }
 
         .filter-container {
@@ -113,10 +173,12 @@
 
         .filter-select {
             padding: 8px 15px;
-            border: 1px solid #ddd;
+            border: 1px solid var(--border-color);
             border-radius: 6px;
-            background: white;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
             cursor: pointer;
+            transition: all 0.3s ease;
         }
 
         /* MAIN CONTENT */
@@ -129,7 +191,7 @@
         .page-title {
             font-size: 24px;
             margin-bottom: 20px;
-            color: #333;
+            color: var(--text-primary);
             font-weight: 600;
         }
 
@@ -143,24 +205,25 @@
 
         /* CAR CARD */
         .car-card {
-            background: white;
+            background: var(--bg-secondary);
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            box-shadow: 0 2px 10px var(--shadow-color);
             transition: transform 0.3s, box-shadow 0.3s;
             position: relative;
+            border: 1px solid var(--border-color);
         }
 
         .car-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            box-shadow: 0 5px 20px var(--shadow-color);
         }
 
         .car-badge {
             position: absolute;
             top: 10px;
             left: 10px;
-            background: #ff6a00;
+            background: var(--accent-color);
             color: white;
             padding: 4px 10px;
             border-radius: 12px;
@@ -191,20 +254,21 @@
             position: absolute;
             top: 10px;
             right: 10px;
-            background: white;
+            background: var(--bg-secondary);
             border: none;
             width: 32px;
             height: 32px;
             border-radius: 50%;
             cursor: pointer;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            color: gray;
+            box-shadow: 0 2px 5px var(--shadow-color);
+            color: var(--text-muted);
             font-size: 16px;
             z-index: 2;
+            transition: all 0.3s ease;
         }
 
         .favorite-btn:hover {
-            background: #ff6a00;
+            background: var(--accent-color);
             color: white;
         }
 
@@ -216,12 +280,12 @@
             font-size: 16px;
             font-weight: bold;
             margin-bottom: 5px;
-            color: #333;
+            color: var(--text-primary);
         }
 
         .car-seller {
             font-size: 12px;
-            color: #666;
+            color: var(--text-secondary);
             margin-bottom: 10px;
         }
 
@@ -231,7 +295,7 @@
             gap: 8px;
             margin-bottom: 15px;
             font-size: 12px;
-            color: #555;
+            color: var(--text-secondary);
         }
 
         .car-detail {
@@ -243,7 +307,7 @@
         .car-price {
             font-size: 18px;
             font-weight: bold;
-            color: #ff6a00;
+            color: var(--accent-color);
             margin-bottom: 10px;
         }
 
@@ -254,7 +318,7 @@
         }
 
         .details-btn {
-            background: #ff6a00;
+            background: var(--accent-color);
             color: white;
             padding: 8px 15px;
             border-radius: 6px;
@@ -265,21 +329,22 @@
         }
 
         .details-btn:hover {
-            background: #e65e00;
+            background: var(--accent-hover);
         }
 
         .compare-btn {
-            background: none;
-            border: 1px solid #ddd;
+            background: transparent;
+            border: 1px solid var(--border-color);
             padding: 6px 10px;
             border-radius: 4px;
             font-size: 12px;
             cursor: pointer;
             transition: all 0.3s;
+            color: var(--text-primary);
         }
 
         .compare-btn:hover {
-            background: #f0f0f0;
+            background: var(--bg-primary);
         }
 
         /* FOOTER */
@@ -348,10 +413,23 @@
             .filter-container {
                 justify-content: center;
             }
+
+            .theme-toggle {
+                top: 10px;
+                right: 10px;
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- THEME TOGGLE BUTTON -->
+    <button class="theme-toggle" id="themeToggle" title="Schimbă tema">
+        🌙
+    </button>
+
     <!-- HEADER -->
     <header class="main-header">
         <div class="header-container">
@@ -606,6 +684,45 @@
     </footer>
 
     <script>
+        // === SISTEM TEMA ÎNTUNECATĂ ===
+        class ThemeManager {
+            constructor() {
+                this.currentTheme = localStorage.getItem('autonova_theme') || 'light';
+                this.init();
+            }
+
+            init() {
+                this.applyTheme(this.currentTheme);
+                this.attachEventListeners();
+            }
+
+            applyTheme(theme) {
+                document.documentElement.setAttribute('data-theme', theme);
+                localStorage.setItem('autonova_theme', theme);
+                this.updateToggleButton(theme);
+            }
+
+            toggleTheme() {
+                this.currentTheme = this.currentTheme === 'light' ? 'dark' : 'light';
+                this.applyTheme(this.currentTheme);
+            }
+
+            updateToggleButton(theme) {
+                const toggleBtn = document.getElementById('themeToggle');
+                if (toggleBtn) {
+                    toggleBtn.textContent = theme === 'light' ? '🌙' : '☀️';
+                    toggleBtn.title = theme === 'light' ? 'Activează tema întunecată' : 'Activează tema luminoasă';
+                }
+            }
+
+            attachEventListeners() {
+                const toggleBtn = document.getElementById('themeToggle');
+                if (toggleBtn) {
+                    toggleBtn.addEventListener('click', () => this.toggleTheme());
+                }
+            }
+        }
+
         // === SISTEM NAVIGAȚIE DINAMICĂ ===
         
         // Verifică dacă utilizatorul este logat
@@ -629,6 +746,9 @@
 
         // Script pentru butoanele favorite
         document.addEventListener('DOMContentLoaded', function() {
+            // Initializează tema
+            new ThemeManager();
+            
             // Actualizează navigația la încărcarea paginii
             updateNavigation();
 
@@ -640,7 +760,7 @@
                     if (this.classList.contains('active')) {
                         this.style.color = 'red';
                     } else {
-                        this.style.color = 'gray';
+                        this.style.color = 'var(--text-muted)';
                     }
                 });
             });
@@ -679,4 +799,3 @@
     </script>
 </body>
 </html>
-
