@@ -26,13 +26,28 @@ class AutoNovaApp {
         const initialCars = [
             {
                 id: 1,
+                make: "Volvo",
+                model: "XC60 B5 Ultimate",
+                year: 2023,
+                price: 49900,
+                fuel: "hibrid",
+                transmission: "automat",
+                mileage: 12500,
+                color: "Alb Crystal",
+                seller: "Dealer autorizat Volvo",
+                image: "https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?w=400&h=250&fit=crop&auto=format",
+                badge: "ULTIMUL MODEL",
+                detailsPage: "volvo-xc60.html"
+            },
+            {
+                id: 2,
                 make: "Skoda",
                 model: "Superb 2.0 TDI",
-                year: 2021,
-                price: 22500,
+                year: 2016,
+                price: 8500,
                 fuel: "motorina",
                 transmission: "automat",
-                mileage: 45800,
+                mileage: 258000,
                 color: "Gri Metalizat",
                 seller: "Dealer auto",
                 image: "https://media.discordapp.net/attachments/914645674677661736/1441093466984681573/20250702_205622.jpg?ex=692527a0&is=6923d620&hm=2a96e89d07b680c796c5936ba226b4998bd4f8b13afd1e85dee5af63df2558d9&=&format=webp&width=1366&height=769",
@@ -40,7 +55,7 @@ class AutoNovaApp {
                 detailsPage: "skoda-superb.html"
             },
             {
-                id: 2,
+                id: 3,
                 make: "BMW",
                 model: "Seria 3 320d",
                 year: 2021,
@@ -55,7 +70,7 @@ class AutoNovaApp {
                 detailsPage: "detalii-bmw.html"
             },
             {
-                id: 3,
+                id: 4,
                 make: "Skoda",
                 model: "Karoq 1.5 TSI",
                 year: 2020,
@@ -70,7 +85,7 @@ class AutoNovaApp {
                 detailsPage: "detalii-skoda.html"
             },
             {
-                id: 4,
+                id: 5,
                 make: "Volkswagen",
                 model: "Golf 1.6 TDI",
                 year: 2019,
@@ -85,7 +100,7 @@ class AutoNovaApp {
                 detailsPage: "detalii-volkswagen.html"
             },
             {
-                id: 5,
+                id: 6,
                 make: "Audi",
                 model: "A4 2.0 TDI",
                 year: 2022,
@@ -100,7 +115,7 @@ class AutoNovaApp {
                 detailsPage: "detalii-audi.html"
             },
             {
-                id: 6,
+                id: 7,
                 make: "Dacia",
                 model: "Duster 1.5 dCi",
                 year: 2021,
@@ -115,7 +130,7 @@ class AutoNovaApp {
                 detailsPage: "detalii-dacia.html"
             },
             {
-                id: 7,
+                id: 8,
                 make: "Mercedes",
                 model: "C-Class C200",
                 year: 2022,
@@ -432,4 +447,3 @@ document.addEventListener('DOMContentLoaded', function() {
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = AutoNovaApp;
 }
-
