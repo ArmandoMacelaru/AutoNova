@@ -68,6 +68,30 @@
             border-color: var(--accent-color);
         }
 
+        /* BACK BUTTON */
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            padding: 10px 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px var(--shadow-color);
+        }
+
+        .back-button:hover {
+            background: var(--accent-color);
+            color: white;
+            border-color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
         .main-header {
             background: linear-gradient(135deg, #ff6a00 0%, #e65e00 100%);
             padding: 15px 0;
@@ -331,6 +355,11 @@
     </header>
 
     <div class="container">
+        <!-- BACK BUTTON -->
+        <a href="index.html" class="back-button">
+            ← Înapoi la mașini
+        </a>
+        
         <div class="car-details-container">
             <div class="car-badge">ECONOMIC</div>
             
@@ -340,7 +369,7 @@
                 </div>
                 <div class="thumbnails">
                     <div class="thumbnail" onclick="changeImage('https://images.unsplash.com/photo-1620138543843-87c54d1d7f63?w=800&h=400&fit=crop&auto=format')">
-                        <img src="https://media.discordapp.net/attachments/1110653376766672907/1441075147162390650/IMG_3553.jpg?ex=6925bf50&is=69246dd0&hm=8131adf9d23edee016154f44f1c93d8189e9848e68c60f5258ea74d6072540b9&=&format=webp&width=577&height=769" alt="Toyota Yaris Exterior">
+                        <img src="https://ireland.apollo.olxcdn.com/v1/files/wp4zvk2aodtk2-AUTOVITRO/image;s=644x461" alt="Toyota Yaris Exterior">
                     </div>
                     <div class="thumbnail" onclick="changeImage('https://images.unsplash.com/photo-1620138544117-9c8f5b1d7c2e?w=800&h=400&fit=crop&auto=format')">
                         <img src="https://media.discordapp.net/attachments/1110653376766672907/1441076255142449182/image.jpg?ex=6925c059&is=69246ed9&hm=a48d191ac697423a11a4356c5c7b188cc49638d4e926883265c8b62e4125a184&=&format=webp&width=1025&height=769" alt="Toyota Yaris Interior">
