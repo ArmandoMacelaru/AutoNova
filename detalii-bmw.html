@@ -11,11 +11,85 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --bg-primary: #f8f9fa;
+            --bg-secondary: #ffffff;
+            --text-primary: #333333;
+            --text-secondary: #666666;
+            --text-muted: #999999;
+            --border-color: #e0e0e0;
+            --shadow-color: rgba(0,0,0,0.1);
+            --accent-color: #ff6a00;
+            --accent-hover: #e65e00;
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #1a1a1a;
+            --bg-secondary: #2d2d2d;
+            --text-primary: #ffffff;
+            --text-secondary: #cccccc;
+            --text-muted: #888888;
+            --border-color: #404040;
+            --shadow-color: rgba(0,0,0,0.3);
+            --accent-color: #ff6a00;
+            --accent-hover: #e65e00;
+        }
+
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f8f9fa;
-            color: #333;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
             line-height: 1.6;
+            transition: all 0.3s ease;
+        }
+
+        /* THEME TOGGLE */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: var(--bg-secondary);
+            border: 2px solid var(--border-color);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            box-shadow: 0 2px 10px var(--shadow-color);
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            border-color: var(--accent-color);
+        }
+
+        /* BACK BUTTON */
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            padding: 10px 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px var(--shadow-color);
+        }
+
+        .back-button:hover {
+            background: var(--accent-color);
+            color: white;
+            border-color: var(--accent-color);
+            transform: translateY(-2px);
         }
 
         .main-header {
@@ -54,10 +128,11 @@
         }
 
         .car-details-container {
-            background: white;
+            background: var(--bg-secondary);
             border-radius: 12px;
             padding: 30px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px var(--shadow-color);
+            border: 1px solid var(--border-color);
         }
 
         .car-gallery {
@@ -92,6 +167,12 @@
             border-radius: 6px;
             overflow: hidden;
             cursor: pointer;
+            border: 2px solid transparent;
+            transition: border 0.3s ease;
+        }
+
+        .thumbnail:hover {
+            border-color: var(--accent-color);
         }
 
         .thumbnail img {
@@ -107,7 +188,7 @@
         }
 
         .car-specs h2 {
-            color: #ff6a00;
+            color: var(--accent-color);
             margin-bottom: 15px;
             font-size: 28px;
         }
@@ -115,7 +196,7 @@
         .price {
             font-size: 32px;
             font-weight: bold;
-            color: #ff6a00;
+            color: var(--accent-color);
             margin-bottom: 20px;
         }
 
@@ -130,28 +211,29 @@
             display: flex;
             justify-content: space-between;
             padding: 10px 0;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid var(--border-color);
         }
 
         .spec-label {
             font-weight: bold;
-            color: #666;
+            color: var(--text-secondary);
         }
 
         .spec-value {
-            color: #333;
+            color: var(--text-primary);
         }
 
         .seller-info {
-            background: #f8f9fa;
+            background: var(--bg-primary);
             padding: 20px;
             border-radius: 8px;
             margin-bottom: 25px;
+            border: 1px solid var(--border-color);
         }
 
         .seller-info h3 {
             margin-bottom: 15px;
-            color: #333;
+            color: var(--text-primary);
         }
 
         .contact-buttons {
@@ -161,7 +243,7 @@
         }
 
         .btn-primary {
-            background: #ff6a00;
+            background: var(--accent-color);
             color: white;
             padding: 15px 30px;
             border: none;
@@ -170,30 +252,97 @@
             font-weight: bold;
             cursor: pointer;
             flex: 1;
+            transition: background 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-hover);
         }
 
         .btn-secondary {
-            background: white;
-            color: #333;
+            background: transparent;
+            color: var(--text-primary);
             padding: 15px 30px;
-            border: 2px solid #ff6a00;
+            border: 2px solid var(--accent-color);
             border-radius: 8px;
             font-size: 16px;
             font-weight: bold;
             cursor: pointer;
             flex: 1;
-        }
-
-        .btn-primary:hover {
-            background: #e65e00;
+            transition: all 0.3s;
         }
 
         .btn-secondary:hover {
-            background: #f8f9fa;
+            background: var(--accent-color);
+            color: white;
+        }
+
+        .car-badge {
+            background: var(--accent-color);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            background: var(--bg-primary);
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+        }
+
+        @media (max-width: 768px) {
+            .car-gallery {
+                grid-template-columns: 1fr;
+            }
+            
+            .car-info {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-buttons {
+                flex-direction: column;
+            }
+            
+            .thumbnails {
+                flex-direction: row;
+                order: -1;
+            }
+            
+            .thumbnail {
+                height: 80px;
+            }
+
+            .theme-toggle {
+                top: 10px;
+                right: 10px;
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- THEME TOGGLE BUTTON -->
+    <button class="theme-toggle" id="themeToggle" title="Schimbă tema">
+        🌙
+    </button>
+
     <header class="main-header">
         <div class="header-container">
             <a href="index.html" class="logo">AUTONOVA</a>
@@ -206,19 +355,26 @@
     </header>
 
     <div class="container">
+        <!-- BACK BUTTON -->
+        <a href="index.html" class="back-button">
+            ← Înapoi la mașini
+        </a>
+        
         <div class="car-details-container">
+            <div class="car-badge">NOU</div>
+            
             <div class="car-gallery">
                 <div class="main-image">
-                    <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=800&h=400&fit=crop" alt="BMW Seria 3">
+                    <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=800&h=400&fit=crop" alt="BMW Seria 3" id="mainImage">
                 </div>
                 <div class="thumbnails">
-                    <div class="thumbnail">
+                    <div class="thumbnail" onclick="changeImage('https://www.kimautoland.ro/wp-content/uploads/2024/08/DSC_2928.jpg')">
                         <img src="https://www.kimautoland.ro/wp-content/uploads/2024/08/DSC_2928.jpg" alt="BMW Exterior">
                     </div>
-                    <div class="thumbnail">
+                    <div class="thumbnail" onclick="changeImage('https://www.rarom.ro/wp-content/uploads/2019/06/TestBMW_mare-246.jpg')">
                         <img src="https://www.rarom.ro/wp-content/uploads/2019/06/TestBMW_mare-246.jpg" alt="BMW Interior">
                     </div>
-                    <div class="thumbnail">
+                    <div class="thumbnail" onclick="changeImage('https://images.overdrive.in/wp-content/odgallery/2013/07/8702_085_320d.jpg')">
                         <img src="https://images.overdrive.in/wp-content/odgallery/2013/07/8702_085_320d.jpg" alt="BMW Motor">
                     </div>
                 </div>
@@ -272,6 +428,22 @@
                         <p><strong>Locație:</strong> București</p>
                         <p><strong>Tip vânzător:</strong> Dealer autorizat</p>
                     </div>
+
+                    <div class="features">
+                        <h3>Dotări principale</h3>
+                        <div class="features-grid">
+                            <div class="feature-item">✓ Navigație profesională</div>
+                            <div class="feature-item">✓ Scaune sport</div>
+                            <div class="feature-item">✓ Camera 360°</div>
+                            <div class="feature-item">✓ Apple CarPlay Wireless</div>
+                            <div class="feature-item">✓ Faruri LED adaptative</div>
+                            <div class="feature-item">✓ Senzori parcare</div>
+                            <div class="feature-item">✓ Cruise Control</div>
+                            <div class="feature-item">✓ Jante aliaj 18"</div>
+                            <div class="feature-item">✓ Climatronic automat</div>
+                            <div class="feature-item">✓ Piele Dakota</div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="purchase-section">
@@ -281,12 +453,27 @@
                         <button class="btn-secondary" onclick="scheduleTestDrive()">Programează test drive</button>
                     </div>
                     
-                    <div style="margin-top: 20px; padding: 15px; background: #e8f5e8; border-radius: 6px;">
+                    <div style="margin-top: 20px; padding: 15px; background: var(--bg-primary); border-radius: 6px; border: 1px solid var(--border-color);">
                         <h4>💡 Cum funcționează?</h4>
                         <p>1. Contactează vânzătorul pentru detalii</p>
                         <p>2. Programează o vizionare</p>
                         <p>3. Negociază prețul</p>
                         <p>4. Finalizează tranzacția</p>
+                    </div>
+
+                    <div style="margin-top: 20px; padding: 15px; background: var(--bg-primary); border-radius: 6px; border: 1px solid var(--border-color);">
+                        <h4>🚗 Test Drive</h4>
+                        <p>Programează un test drive pentru a verifica personal mașina.</p>
+                        <p><strong>Disponibilitate:</strong> Luni - Vineri: 9:00 - 18:00</p>
+                    </div>
+
+                    <div style="margin-top: 20px; padding: 15px; background: #e8f5e8; border-radius: 6px; border: 1px solid #4caf50;">
+                        <h4>✅ Verificată AutoNova</h4>
+                        <p>Această mașină a fost verificată de specialiștii noștri:</p>
+                        <p>✓ Fără accidente în istoric</p>
+                        <p>✓ Kilometraj real verificat</p>
+                        <p>✓ Documente în regulă</p>
+                        <p>✓ Stare tehnică excelentă</p>
                     </div>
                 </div>
             </div>
@@ -294,20 +481,74 @@
     </div>
 
     <script>
+        // === SISTEM TEMA ÎNTUNECATĂ ===
+        class ThemeManager {
+            constructor() {
+                this.currentTheme = localStorage.getItem('autonova_theme') || 'light';
+                this.init();
+            }
+
+            init() {
+                this.applyTheme(this.currentTheme);
+                this.attachEventListeners();
+            }
+
+            applyTheme(theme) {
+                document.documentElement.setAttribute('data-theme', theme);
+                localStorage.setItem('autonova_theme', theme);
+                this.updateToggleButton(theme);
+            }
+
+            toggleTheme() {
+                this.currentTheme = this.currentTheme === 'light' ? 'dark' : 'light';
+                this.applyTheme(this.currentTheme);
+            }
+
+            updateToggleButton(theme) {
+                const toggleBtn = document.getElementById('themeToggle');
+                if (toggleBtn) {
+                    toggleBtn.textContent = theme === 'light' ? '🌙' : '☀️';
+                    toggleBtn.title = theme === 'light' ? 'Activează tema întunecată' : 'Activează tema luminoasă';
+                }
+            }
+
+            attachEventListeners() {
+                const toggleBtn = document.getElementById('themeToggle');
+                if (toggleBtn) {
+                    toggleBtn.addEventListener('click', () => this.toggleTheme());
+                }
+            }
+        }
+
         function contactSeller() {
             alert('Vânzătorul va fi contactat în curând! 📞\nNume: AutoPremium SRL\nTelefon: 0722 123 456');
         }
 
         function scheduleTestDrive() {
-            alert('Test drive programat cu succes! 🚗\nVei fi contactat pentru confirmare.');
+            const name = prompt('Introdu numele tău:');
+            if (name) {
+                const phone = prompt('Introdu numărul de telefon:');
+                if (phone) {
+                    alert(`Test drive programat cu succes! 🚗\nNume: ${name}\nTelefon: ${phone}\nVei fi contactat în scurt timp pentru confirmare.`);
+                }
+            }
+        }
+
+        function changeImage(src) {
+            document.getElementById('mainImage').src = src;
         }
 
         // Schimbă imaginea principală la click pe thumbnail
         document.querySelectorAll('.thumbnail').forEach(thumb => {
             thumb.addEventListener('click', function() {
-                const mainImage = document.querySelector('.main-image img');
-                mainImage.src = this.querySelector('img').src.replace('w=200', 'w=800');
+                const newSrc = this.querySelector('img').src;
+                document.getElementById('mainImage').src = newSrc;
             });
+        });
+
+        // Initializează tema
+        document.addEventListener('DOMContentLoaded', function() {
+            new ThemeManager();
         });
     </script>
 </body>
